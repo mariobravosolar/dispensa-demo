@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dispensa</title>
+<meta name="description" content="Dispensa: el sistema que ordena tu dispensario de cannabis medicinal. Demo navegable.">
+<link rel="stylesheet" href="css/fuentes.css?v=14">
+<link rel="stylesheet" href="css/base.css?v=14">
+<link rel="stylesheet" href="css/vistas.css?v=14">
+<link rel="stylesheet" href="css/v-inicio.css?v=14">
+<link rel="stylesheet" href="css/v-club.css?v=14">
+<link rel="stylesheet" href="css/v-postular.css?v=14">
+<link rel="stylesheet" href="css/v-socio.css?v=14">
+<link rel="stylesheet" href="css/v-panel.css?v=14">
+<link rel="stylesheet" href="css/v-presentacion.css?v=14">
+<script>
+  // aplica el modo de color antes de pintar, para evitar parpadeo
+  (function () { var m = 'negro'; try { m = localStorage.getItem('dispensa-modo-v2') || m; } catch (e) {} document.documentElement.setAttribute('data-modo', m); })();
+</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="grad-psico" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF6B35"/><stop offset=".35" stop-color="#F4C542"/><stop offset=".7" stop-color="#E85D75"/><stop offset="1" stop-color="#8A3FA0"/>
+    </linearGradient>
+    <linearGradient id="grad-marca" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFD66B"/><stop offset=".55" stop-color="#F4C542"/><stop offset="1" stop-color="#FF8A3D"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<header class="demobar" id="demobar">
+  <a class="marca" href="#inicio" aria-label="Dispensa, inicio">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-logo"/></svg><span>Dispensa</span>
+  </a>
+  <nav aria-label="Vistas de la demo">
+    <a href="#inicio">Dispensa</a>
+    <a href="#presentacion">Presentación</a>
+    <a href="#club">Sitio del club</a>
+    <a href="#postular">Postulación</a>
+    <a href="#socio">App socio</a>
+    <a href="#panel">Panel</a>
+    <a href="#precios">Planes</a>
+  </nav>
+  <div class="modos" role="radiogroup" aria-label="Modo de color">
+    <button type="button" role="radio" data-modo="negro" title="Modo negro" aria-label="Modo negro"><svg viewBox="0 0 24 24"><use href="#i-negro"/></svg></button>
+    <button type="button" role="radio" data-modo="claro" title="Modo claro" aria-label="Modo claro"><svg viewBox="0 0 24 24"><use href="#i-sol"/></svg></button>
+    <button type="button" role="radio" data-modo="oscuro" title="Modo oscuro" aria-label="Modo oscuro"><svg viewBox="0 0 24 24"><use href="#i-luna"/></svg></button>
+    <button type="button" role="radio" data-modo="verde" title="Modo verde" aria-label="Modo verde"><svg viewBox="0 0 24 24"><use href="#i-hoja"/></svg></button>
+  </div>
+  <button type="button" class="reset" id="btn-reset" title="Vuelve la demo a su estado inicial">Reiniciar demo</button>
+</header>
+
+<main id="vista" tabindex="-1"></main>
+<div id="toasts" aria-live="polite"></div>
+
+<script src="js/store.js?v=14"></script>
+<script src="js/iconos.js?v=14"></script>
+<script src="js/fx.js?v=14"></script>
+<script src="js/cannabis.js?v=14"></script>
+<script src="js/personaje.js?v=14"></script>
+<script src="js/vista-inicio.js?v=14"></script>
+<script src="js/vista-club.js?v=14"></script>
+<script src="js/vista-presentacion.js?v=14"></script>
+<script src="js/vista-postular.js?v=14"></script>
+<script src="js/vista-socio.js?v=14"></script>
+<script src="js/vista-panel.js?v=14"></script>
+<script src="js/vista-precios.js?v=14"></script>
+<script src="js/app.js?v=14"></script>
+<script src="js/estaciones.js?v=14"></script>
+<script src="js/radio.js?v=14"></script>
+<script src="js/fondo.js?v=14"></script>

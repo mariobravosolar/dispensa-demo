@@ -1,0 +1,45 @@
+/* estilos comunes entre vistas (se completan al integrar) */
+
+/* ---------- interruptor de modo de color (barra de demo) ---------- */
+.demobar .modos { display: inline-flex; gap: 2px; padding: 3px; border-radius: 999px; border: 1px solid var(--linea-fuerte); background: var(--fondo-3); flex: none; }
+.demobar .modos button { width: 32px; height: 28px; border: 0; border-radius: 999px; background: transparent; color: var(--tinta-3); display: grid; place-items: center; cursor: pointer; transition: background .25s, color .25s, transform .25s var(--rebote); }
+.demobar .modos button svg { width: 16px; height: 16px; }
+.demobar .modos button:hover { color: var(--tinta); }
+.demobar .modos button[aria-checked="true"] { background: var(--bosque); color: var(--sobre-bosque); transform: scale(1.05); }
+.demobar .marca svg { color: var(--tinta); }
+@media (max-width: 720px) { .demobar .modos button { width: 28px; } }
+
+/* ---------- marca: hoja de cannabis + «Dispensa» en letras grandes (crema con acento mostaza) ---------- */
+.demobar .marca { gap: 6px; }
+.demobar .marca svg { width: 30px; height: 30px; filter: drop-shadow(0 2px 6px rgba(244,197,66,.35)); }
+.demobar .marca span,
+.so-logo b, .in-tel-marca, .pz-nucleo b, .pz-app-marca, .in-pie-marca, .pn-producto span, .cl-pie-dispensa,
+.in-marca b {
+  font-family: var(--f-retro); font-weight: 900; letter-spacing: -.01em;
+}
+.demobar .marca span { font-size: 1.35rem; color: var(--tinta); }
+.demobar .marca span::first-letter { color: var(--mostaza); }
+[data-modo="claro"] .demobar .marca span::first-letter { color: #C98A12; }
+
+/* ---------- capa cannábica (js/cannabis.js) ---------- */
+.cz-capa { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.cz-el { position: absolute; transform: translate(-50%, -50%) rotate(var(--r)); animation: czMece var(--t) ease-in-out var(--d) infinite alternate; }
+.cz-el svg { width: 100%; height: 100%; display: block; }
+.cz-hoja { opacity: .5; filter: drop-shadow(0 0 14px color-mix(in srgb, currentColor 55%, transparent)); }
+.cz-prod { opacity: .45; }
+.cz-prod svg { fill: none; stroke: currentColor; stroke-width: 1.6; }
+[data-modo="claro"] .cz-hoja { opacity: .3; filter: none; }
+@keyframes czMece {
+  from { transform: translate(-50%, -50%) rotate(var(--r)) translateY(0); }
+  to { transform: translate(-50%, -50%) rotate(calc(var(--r) + 9deg)) translateY(-12px); }
+}
+@media (max-width: 720px) { .cz-el { scale: .6; } .cz-hoja { opacity: .14; } }
+@media (prefers-reduced-motion: reduce) { .cz-el { animation: none; } }
+
+/* logo grande en la portada de la presentación */
+.vista-presentacion .pz-logo { width: calc(var(--u, 12px) * 13); height: calc(var(--u, 12px) * 13); }
+@media (max-width: 720px) { .vista-presentacion .pz-logo { width: 84px; height: 84px; } }
+
+/* CogoMan dentro de las vistas: tamaño contenido para no tapar titulares */
+.vista-presentacion .pz-zorro-png img.cogoman { width: auto !important; height: min(30vh, 250px) !important; max-width: 100%; }
+.vista-inicio img.cogoman.in-zorro-heroe { width: auto !important; height: min(26vh, 220px) !important; }
