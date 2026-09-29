@@ -34,7 +34,7 @@
   </button>
   <div class="rd-barra" aria-label="Reproduciendo">
     <span class="rd-b-tapa">${ico('cannabis')}</span>
-    <span class="rd-b-tx"><b class="rd-b-titulo">—</b><small class="rd-b-artista"></small></span>
+    <span class="rd-b-tx"><b class="rd-b-titulo">Elige un tema</b><small class="rd-b-artista">Radio del club</small></span>
     <button type="button" class="rd-b-ant" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M6 5v14M19 5 9 12l10 7Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button>
     <button type="button" class="rd-b-play" aria-label="Reproducir o pausar"><svg viewBox="0 0 24 24" class="rd-i-play"><path d="M8 5.5v13l10.5-6.5Z" fill="currentColor"/></svg><svg viewBox="0 0 24 24" class="rd-i-pausa"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg></button>
     <button type="button" class="rd-b-sig" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M18 5v14M5 5l10 7-10 7Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button>
@@ -78,7 +78,6 @@
       if (m.tipo === 'yt') $('.rd-yt').href = 'https://www.youtube.com/watch?v=' + m.id;
       $('.rd-b-titulo').textContent = m.t; $('.rd-b-artista').textContent = m.tipo === 'est' ? 'Estación del club' : m.a;
       $('.rd-b-tapa').style.backgroundImage = m.tipo === 'yt' && !SIN_EMBED ? `url(https://i.ytimg.com/vi/${m.id}/mqdefault.jpg)` : '';
-      raiz.classList.add('con-barra'); html.classList.add('rd-con-barra');
     }
   }
   function pararVideo() { if (iframe) { iframe.src = 'about:blank'; } raiz.classList.remove('con-video'); }
@@ -120,18 +119,26 @@
     else mandar(sonando ? 'playVideo' : 'pauseVideo');
     pintar();
   }
-  function abrir(v) { abierto = v; raiz.classList.toggle('abierto', v); $('.rd-boton').setAttribute('aria-expanded', v); }
+  // Cerrado: solo el botón. Abierto: bajo 1240 px se despliega hacia el lado (barra); en pantallas grandes, el panel completo.
+  const angosto = () => innerWidth < 1240;
+  function abrir(v) {
+    abierto = v;
+    raiz.classList.toggle('con-barra', v && angosto());
+    raiz.classList.toggle('abierto', v && !angosto());
+    $('.rd-boton').setAttribute('aria-expanded', v);
+  }
+  function lista(v) { raiz.classList.toggle('abierto', v); }
 
   $('.rd-boton').addEventListener('click', () => abrir(!abierto));
-  $('.rd-cerrar').addEventListener('click', () => abrir(false));
+  $('.rd-cerrar').addEventListener('click', () => { if (angosto() && raiz.classList.contains('con-barra')) lista(false); else abrir(false); });
   $('.rd-play').addEventListener('click', alternar);
   $('.rd-sig').addEventListener('click', () => tocar(actual + 1));
   $('.rd-ant').addEventListener('click', () => tocar(actual < 0 ? 0 : actual - 1));
-  raiz.querySelectorAll('.rd-lista button').forEach(b => b.addEventListener('click', () => { tocar(+b.dataset.i); abrir(false); }));
+  raiz.querySelectorAll('.rd-lista button').forEach(b => b.addEventListener('click', () => { tocar(+b.dataset.i); if (angosto()) lista(false); }));
   $('.rd-b-play').addEventListener('click', alternar);
   $('.rd-b-sig').addEventListener('click', () => tocar(actual + 1));
   $('.rd-b-ant').addEventListener('click', () => tocar(actual < 0 ? 0 : actual - 1));
-  $('.rd-b-lista').addEventListener('click', () => abrir(!abierto));
+  $('.rd-b-lista').addEventListener('click', () => lista(!raiz.classList.contains('abierto')));
   const chk = $('.rd-cogo input');
   chk.checked = !(D.personaje && D.personaje.silenciado);
   chk.addEventListener('change', () => D.personaje && D.personaje.silenciar(!chk.checked));
@@ -187,6 +194,7 @@
 .rd-pie { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--linea); font-size: .72rem; color: var(--tinta-3); display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; }
 .rd-pie a { color: var(--salvia); }
 .rd.sin-embed .rd-yt { background: var(--bosque); color: var(--sobre-bosque); padding: 4px 10px; border-radius: 999px; font-weight: 700; text-decoration: none; } .rd-cogo { margin-left: auto; display: inline-flex; gap: 4px; align-items: center; cursor: pointer; color: var(--tinta-2); }
+body[data-vista="presentacion"] .rd { bottom: calc(74px + env(safe-area-inset-bottom, 0px)); }
 .rd-barra { position: absolute; left: 64px; bottom: 4px; height: 48px; display: none; align-items: center; gap: 4px; padding: 4px 6px 4px 4px; border-radius: 999px;
   background: var(--fondo-2); border: 1px solid var(--linea-fuerte); box-shadow: var(--sombra); width: max-content; max-width: min(460px, calc(100vw - 96px)); animation: rdBarra .45s cubic-bezier(.34,1.56,.64,1); }
 .rd.con-barra .rd-barra { display: flex; }
@@ -200,7 +208,8 @@
 .rd-barra button svg { width: 16px; height: 16px; } .rd-barra .rd-b-play { background: var(--bosque); color: var(--sobre-bosque); width: 38px; height: 38px; }
 .rd-barra button:hover { background: var(--fondo-3); } .rd-barra .rd-b-play:hover { background: var(--bosque-2); }
 @media (max-width: 720px) { .rd { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); left: 12px; } .rd-boton { width: 48px; height: 48px; }
-  .rd-barra { left: 54px; bottom: 2px; height: 44px; max-width: calc(100vw - 80px); } .rd-b-tx { max-width: 34vw; } }
+  .rd { left: auto; right: 12px; } .rd-panel { left: auto; right: 0; transform-origin: bottom right; }
+  .rd-barra { left: auto; right: 54px; bottom: 2px; height: 44px; max-width: calc(100vw - 80px); } .rd-b-tx { max-width: 34vw; } }
 `;
   document.head.appendChild(css);
   D.radio = { tocar, alternar, abrir };

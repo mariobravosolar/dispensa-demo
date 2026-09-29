@@ -51,6 +51,7 @@
   }
 
   function decorar(nombre, raiz) {
+    if (matchMedia('(max-width: 720px)').matches) return;   // en el celular, más liviano
     semilla = 7 + nombre.length * 31;
     (MAPA[nombre] || []).forEach(([sel, n]) => raiz.querySelectorAll(sel).forEach(h => sembrar(h, n)));
   }
