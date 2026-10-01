@@ -1,7 +1,7 @@
 /* ============================================================
    Dispensa — personajes.
-   • CogoMan: la mascota de Dispensa. Te acompaña un rato al entrar (junto al
-     botón de música), después se desvanece. Al final de la página lo vuelves a
+   • CogoMan: la mascota de Dispensa. Te acompaña un rato al entrar (abajo
+     a la izquierda), después se desvanece. Al final de la página lo vuelves a
      encontrar, parado a la izquierda de la sección final.
    • Los primos: personajes distintos que están «estacionados» en las secciones
      (Rasta Rulo, DJ Gorrito). Al final, a la derecha, está Moji, el punk,
@@ -247,9 +247,9 @@ img.primo-gorrito { animation: prCabeceo .6s ease-in-out infinite alternate; }
 @keyframes prCabeceo { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
 .vista-presentacion .pz-zorro-png img.primo { width: auto !important; height: min(30vh, 250px) !important; max-width: 100%; }
 .vista-inicio img.primo.in-zorro-heroe { width: auto !important; height: min(26vh, 220px) !important; }
-/* acompañante flotante: encima del botón de música, se desvanece */
-body[data-vista="presentacion"] .cm { bottom: calc(134px + env(safe-area-inset-bottom, 0px)); }
-.cm { position: fixed; left: 8px; bottom: calc(76px + env(safe-area-inset-bottom, 0px)); z-index: 90; pointer-events: none; }
+/* acompañante flotante abajo a la izquierda, se desvanece */
+body[data-vista="presentacion"] .cm { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+.cm { position: fixed; left: 8px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 90; pointer-events: none; }
 .cm-actor { pointer-events: auto; display: block; width: 116px; border: 0; padding: 0; background: none; cursor: pointer; opacity: 0; transform: translateY(24px) scale(.9); transition: opacity .6s ease, transform .7s cubic-bezier(.34,1.56,.64,1); }
 .cm.cm-in .cm-actor { opacity: 1; transform: none; }
 .cm:not(.cm-in) .cm-actor { pointer-events: none; }
