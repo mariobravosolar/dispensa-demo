@@ -22,13 +22,13 @@
 
   function modo(m) {
     document.documentElement.setAttribute('data-modo', m);
-    try { localStorage.setItem('dispensa-modo-v2', m); } catch (e) { }
+    try { localStorage.setItem('dispensa-modo-v3', m); } catch (e) { }
     document.querySelectorAll('.modos button').forEach(b => b.setAttribute('aria-checked', b.dataset.modo === m ? 'true' : 'false'));
     DEMO.emit && DEMO.emit('modo', m);
   }
 
   document.querySelectorAll('.modos button').forEach(b => b.addEventListener('click', () => modo(b.dataset.modo)));
-  modo(document.documentElement.getAttribute('data-modo') || 'negro');
+  modo(document.documentElement.getAttribute('data-modo') || 'claro');
 
   document.getElementById('btn-reset').addEventListener('click', () => {
     DEMO.reiniciar();

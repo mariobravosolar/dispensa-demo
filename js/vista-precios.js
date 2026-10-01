@@ -126,7 +126,7 @@
             ${ico('rayo', 'pr-oferta-ico')}
             <p><b class="pr-oferta-tit">Oferta de lanzamiento:</b> <b>implementación gratis</b> para los primeros <b>10 dispensarios</b></p>
             <div class="pr-oferta-hojas" aria-hidden="true">${cupos}</div>
-            <span class="in-mano pr-oferta-mano">sí, los primeros diez ☾</span>
+            <span class="in-mano pr-oferta-mano">sí, los primeros diez</span>
           </div>
         </div>
         <section class="pr-heroe">
@@ -190,7 +190,7 @@
           <div class="contenedor in-pie-fila">
             <span class="in-pie-marca">${ico('logo')} Dispensa</span>
             <span class="chip sin-punto">Chile + Argentina</span>
-            <span class="in-mano">precios claros, como el agua de la cordillera ♡</span>
+            <span class="in-mano">precios claros, como el agua de la cordillera</span>
           </div>
         </footer>
       </div>`;

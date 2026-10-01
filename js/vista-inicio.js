@@ -52,7 +52,7 @@
         <div class="in-tel-pant">
           <div class="in-tel-top"><span>9:41</span><span class="in-isla"></span><span>●●</span></div>
           <div class="in-tel-marca">${ico('logo')}Dispensa<span class="in-campana">${ico('campana')}<i>2</i></span></div>
-          <p class="in-tel-hola">Hola, ${s.socio.primer}<small>Qué bueno tenerte aquí ✦</small></p>
+          <p class="in-tel-hola">Hola, ${s.socio.primer}<small>Qué bueno tenerte aquí</small></p>
           <div class="in-tt in-tt-tok"><span class="moneda">T</span><span><b class="num">${s.socio.tokens} tokens</b><small>Tu saldo disponible</small></span>${ico('flecha')}</div>
           <div class="in-tt in-tt-mem"><span class="in-anillo" style="--p:${Math.round(dm / 365 * 100)}"><b class="num">${dm}</b><small>días</small></span><span><b>Tu membresía está activa</b><small>Un acceso más consciente, todos los días.</small></span></div>
           <div class="in-tt">${ico('receta')}<span><b>Receta vigente</b><small>Hasta el ${D.fmt.fechaCorta(s.socio.receta.hasta)}</small></span>${ico('flecha')}</div>
@@ -95,14 +95,14 @@
             <a class="btn in-btn-verde in-btn-xl" href="#presentacion">Ver la demo en vivo ${ico('flecha')}</a>
             <a class="btn btn-fantasma in-btn-xl" href="#club">Ver el sitio del club</a>
           </div>
-          <p class="in-mano in-mano-1">menos enredo,<br>más control ♡</p>
+          <p class="in-mano in-mano-1">menos papeleo,<br>más control</p>
           <div class="in-heroe-bosque" aria-hidden="true">
             <img class="in-zorro-img in-zorro-heroe" src="img/arte/zorro.png" alt="" width="720" height="900">
-            <p class="in-mano in-mano-2">La salud<br>también<br>florece ♡</p>
+            <p class="in-mano in-mano-2">Salud<br>y bienestar</p>
           </div>
         </div>
         <div class="in-heroe-mock anim-der" style="animation-delay:.1s">
-          <p class="in-mano in-mano-3">Tecnología<br>que cuida ♡</p>
+          <p class="in-mano in-mano-3">Tecnología<br>que cuida</p>
           ${mockHeroe()}
         </div>
       </div>
@@ -139,7 +139,7 @@
         <div class="in-ad-tablero">${tarjetas}</div>
         <div class="in-ad-pie">
           <button type="button" class="btn btn-fantasma" id="in-ad-toggle">${ico('actualizar')} <span>Ver el antes</span></button>
-          <p class="in-mano">sí, esto se ordena solo</p>
+          <p class="in-mano">esto se ordena solo</p>
         </div>
       </div>
     </section>`;
@@ -178,7 +178,7 @@
           <svg class="in-pista-svg" aria-hidden="true"><path class="in-pista-base"/><path class="in-pista-trazo"/><g class="in-paquete"><circle r="15"/><text text-anchor="middle" dy="5">T</text></g></svg>
           <ol class="in-pasos">${lista}</ol>
         </div>
-        <p class="in-mano centro">todo fluye, y tú ni te enteras</p>
+        <p class="in-mano centro">todo funciona en segundo plano</p>
       </div>
     </section>`;
   }
@@ -202,7 +202,7 @@
           <p class="eyebrow">Módulos</p>
           <h2 class="in-h2">Módulos que <em>ordenan</em> tu operación.</h2>
           <p class="in-sub">Todo conectado: admisión, receta, gramaje, tokens, membresía y comunicación.</p>
-          <p class="in-mano in-mano-der">para clubes y dispensarios ♡</p>
+          <p class="in-mano in-mano-der">para clubes y dispensarios</p>
         </div>
         <div class="in-mod-grid">
           ${m.map((x, k) => `<article class="in-mod-t ${x.c || ''}" data-entra="${k % 3 === 0 ? 'izq' : k % 3 === 2 ? 'der' : 'abajo'}" style="--d:${(k % 3) * .08}s">
@@ -262,7 +262,7 @@
           <p class="eyebrow">Gramaje diario</p>
           <h2 class="in-h2">Cada gramo, <em>en su lugar.</em></h2>
           <p class="in-sub">El sistema suma lo que canjea cada socio y frena el carrito si se pasa del cupo de su receta.</p>
-          <p class="in-mano">las matemáticas las hace el sistema, tú no</p>
+          <p class="in-mano">el cálculo lo hace el sistema</p>
         </div>
         <div class="in-gram-panel" data-entra="der">
           <div class="in-gram-cab"><b>${s.socio.nombre}</b><span class="chip ok">Receta ${lim} g/mes</span></div>
@@ -340,7 +340,7 @@
             <li>${ico('check')} Envías un comunicado en segundos</li>
             <li>${ico('check')} Atiendes en el mesón sin planillas</li>
           </ul>
-          <p class="in-mano">sí, también desde la playa</p>
+          <p class="in-mano">desde cualquier lugar</p>
         </div>
         <div class="in-cel-mock" data-entra="der">
           <div class="in-cel in-cel-grande">
@@ -379,7 +379,7 @@
       <div class="contenedor in-pie-fila">
         <span class="in-pie-marca">${ico('logo')} Dispensa</span>
         <span class="chip sin-punto">Chile + Argentina</span>
-        <span class="in-mano">ningún Excel fue maltratado en esta demo ♡</span>
+        <span class="in-mano">demo con datos ficticios</span>
       </div>
     </footer>`;
   }

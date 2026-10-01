@@ -81,10 +81,10 @@
   /* ---------- pedidos (lista del panel + los de Camila en vivo) ---------- */
   function pedidosBase() {
     return [
-      { id: 2058, socio: 'Tomás Fuentes', items: 'Celestial Gas 5 g + Kief 1 g', tokens: 60, gramos: 6, entrega: 'Despacho · Ñuñoa', estado: 'preparando', firma: null, fecha: D.hoy() },
+      { id: 2058, socio: 'Tomás Fuentes', items: 'Celestial Gas 5 g + Ungüento CBD', tokens: 65, gramos: 5, entrega: 'Despacho · Ñuñoa', estado: 'preparando', firma: null, fecha: D.hoy() },
       { id: 2057, socio: 'Antonia Reyes', items: 'Aceite CBD 1500 mg', tokens: 45, gramos: 0, entrega: 'Despacho · Viña del Mar', estado: 'en-camino', firma: 'pendiente', fecha: D.hoy() },
       { id: 2056, socio: 'Martín Silva', items: 'Púrpura 5 g × 2', tokens: 48, gramos: 10, entrega: 'Retiro en local', estado: 'preparando', firma: null, fecha: D.hoy() },
-      { id: 2053, socio: 'Isidora Vargas', items: 'Pre-roll x5 + Gomitas', tokens: 40, gramos: 3.5, entrega: 'Despacho · Providencia', estado: 'en-camino', firma: 'pendiente', fecha: D.masDias(D.hoy(), -1) },
+      { id: 2053, socio: 'Isidora Vargas', items: 'Lemon Octane CBD 8 g', tokens: 30, gramos: 8, entrega: 'Despacho · Providencia', estado: 'en-camino', firma: 'pendiente', fecha: D.masDias(D.hoy(), -1) },
       { id: 2051, socio: 'Valentina Soto', items: 'White Wedding 5 g', tokens: 36, gramos: 5, entrega: 'Despacho · Valparaíso', estado: 'entregado', firma: 'firmada', fecha: D.masDias(D.hoy(), -1) },
       { id: 2049, socio: 'Lucas Morales', items: 'Sour Diesel 5 g', tokens: 25, gramos: 5, entrega: 'Retiro en local', estado: 'entregado', firma: 'firmada', fecha: D.masDias(D.hoy(), -2) },
       { id: 2046, socio: 'Florencia Díaz', items: 'Ungüento CBD', tokens: 20, gramos: 0, entrega: 'Despacho · Viña del Mar', estado: 'entregado', firma: 'pendiente', fecha: D.masDias(D.hoy(), -3) }
@@ -197,7 +197,7 @@
           <h1 class="pn-h1 pn-retro">Hola, <span class="pn-oro">Diego</span> ${ico('hoja', 'pn-hola-hoja')}</h1>
           <p class="pn-sub">Aquí tienes el resumen de ${esc(s.dispensario.nombre)}. <span class="pn-fecha">${fechaLarga()}</span></p>
         </div>
-        <p class="pn-mano pn-hola-mano">hoy el sistema ya hizo<br><b>${total} cosas</b> por ti ♥</p>
+        <p class="pn-mano pn-hola-mano">hoy el sistema ya hizo<br><b>${total} cosas</b> por ti</p>
       </div>
       <div class="pn-kpis">
         ${kpis().map((k, i) => `
@@ -222,7 +222,7 @@
           <ul class="pn-resueltas">
             ${RESUELTAS.map((r, i) => `<li style="--i:${i}"><span class="pn-res-ok">${ico('check')}</span><span class="pn-res-ico">${ico(r.i)}</span><div><p>${r.t} <b class="num">· ${r.n}</b></p><small>${r.s}</small></div><em>Resuelto automáticamente</em></li>`).join('')}
           </ul>
-          <p class="pn-mano pn-resuelto-mano">mientras dormías ☾</p>
+          <p class="pn-mano pn-resuelto-mano">mientras dormías</p>
         </section>
         </div>
         <div class="pn-col pn-col-b">
@@ -327,7 +327,7 @@
     return `<svg viewBox="0 0 90 116"><rect x="4" y="4" width="82" height="108" rx="6" class="pn-adj-fondo"/><path d="M14 18h40M14 30h62M14 38h62M14 46h50M14 58h62M14 66h44" class="pn-adj-linea pn-adj-fina"/>${tipo === 'receta' ? '<path d="M20 90c6 0 8-10 14-10s2 8 7 8 6-5 9-5 3 3 10 3" class="pn-adj-firma"/><circle cx="66" cy="92" r="11" class="pn-adj-sello"/>' : '<rect x="14" y="80" width="30" height="10" rx="3" class="pn-adj-sello"/>'}</svg>`;
   };
   function fichaSolicitud(s) {
-    if (!s) return `<div class="pn-vacio">${ico('hongo', 'pn-vacio-ico')}<p class="pn-mano">Bandeja limpia. Ve por un té 🍵</p><small>Cuando alguien postule desde el sitio, aparece aquí al instante.</small></div>`;
+    if (!s) return `<div class="pn-vacio">${ico('check', 'pn-vacio-ico')}<p class="pn-mano">Bandeja al día.</p><small>Cuando alguien postule desde el sitio, aparece aquí al instante.</small></div>`;
     const estado = s.estado || 'pendiente';
     const falta = !!s.incompleta;
     const adj = [['cedula', 'Cédula · frente'], ['reverso', 'Cédula · reverso'], ['doc', 'Antecedentes'], ['receta', 'Receta médica']];
@@ -357,7 +357,7 @@
           <button type="button" class="btn btn-fantasma" data-accion="comentar" data-id="${esc(s.id)}">${ico('correo')}Comentar</button>
           <button type="button" class="btn btn-fantasma pn-btn-rechazo" data-accion="rechazar" data-id="${esc(s.id)}">${ico('x')}Rechazar</button>
         </div>
-        <p class="pn-mano pn-decidir-nota">tú decides; el sistema hace el resto ✦</p>` : ''}
+        <p class="pn-mano pn-decidir-nota">tú decides; el sistema hace el resto</p>` : ''}
       </div>`;
   }
   const solicitudes = {
@@ -380,7 +380,7 @@
               <span class="pn-sol-txt"><b>${esc(s.nombre)}</b><small>${esc(s.motivo || '')}</small>
                 <span class="pn-sol-meta">${ico('adjunto')}${s.adjuntos || 0} adjuntos · ${esc(s.receta || '')}</span></span>
               <span class="pn-sol-der"><small>${esc(s.hace || '')}</small>${s.incompleta ? '<span class="chip aviso">Falta receta</span>' : '<span class="chip ok">Completa</span>'}</span>
-            </button>`).join('') : `<div class="pn-vacio pn-vacio-sm">${ico('flor', 'pn-vacio-ico')}<p class="pn-mano">${ui.solTab === 'pendiente' ? 'Nada pendiente. El comité puede ir por un té 🍵' : 'Todavía nada por aquí.'}</p></div>`}
+            </button>`).join('') : `<div class="pn-vacio pn-vacio-sm">${ico('flor', 'pn-vacio-ico')}<p class="pn-mano">${ui.solTab === 'pendiente' ? 'Nada pendiente.' : 'Todavía nada por aquí.'}</p></div>`}
         </div>
         <div class="pn-sol-ficha pn-card">${fichaSolicitud(sel)}</div>
       </div>`;
@@ -502,7 +502,7 @@
       </div>
       <div class="pn-tabla-cab"><span>Socio</span><span>Tokens</span><span>Membresía</span><span>Receta</span><span>Gramaje del mes</span></div>
       <div class="pn-tabla" id="pn-filas">${filasSocios()}</div>
-      <p class="pn-mano pn-pie-nota">mostrando ${todos.length} de ${seg('todos')} · el resto sigue igual de ordenado ✿</p>`;
+      <p class="pn-mano pn-pie-nota">mostrando ${todos.length} de ${seg('todos')} · el resto sigue igual de ordenado</p>`;
     },
     montar(c) {
       const inp = c.querySelector('#pn-busca-socios');
@@ -718,7 +718,7 @@
               ${p.firma === 'firmada' ? `<button type="button" class="btn btn-fantasma btn-sm" data-accion="comprobante" data-id="${p.id}">${ico('documento')}Comprobante</button>` : ''}
             </div>
           </article>`;
-        }).join('') : `<div class="pn-vacio pn-vacio-sm">${ico('firma', 'pn-vacio-ico')}<p class="pn-mano">Todo firmado. Así da gusto ✍️</p></div>`}
+        }).join('') : `<div class="pn-vacio pn-vacio-sm">${ico('firma', 'pn-vacio-ico')}<p class="pn-mano">Todo firmado.</p></div>`}
       </div>`;
     },
     montar() { listaPedidos().forEach(p => { p.recien = false; }); }
@@ -752,7 +752,7 @@
   }
   const bloqueBolsas = () => `
     <section class="pn-bloque">
-      <div class="pn-card-cab"><div><h2 class="pn-h2">Bolsas de tokens</h2><p class="pn-mini">Precio y tokens son independientes: puedes hacer promociones sin llamar a nadie.</p></div><span class="pn-mano">¿2x1 en cumpleaños? dale ✦</span></div>
+      <div class="pn-card-cab"><div><h2 class="pn-h2">Bolsas de tokens</h2><p class="pn-mini">Precio y tokens son independientes: puedes hacer promociones sin llamar a nadie.</p></div><span class="pn-mano">promociones configurables</span></div>
       <div class="pn-bolsas">${D.state.bolsas.map(tarjetaBolsa).join('')}</div>
     </section>`;
   const inventario = {
@@ -823,7 +823,7 @@
         <div class="pn-kpi pn-t-aviso"><span class="pn-kpi-ico">${ico('actualizar')}</span><small>Devoluciones automáticas</small><b class="num">4</b><em>total y parcial, sin planillas</em></div>
       </div>
       <section class="pn-bloque pn-card">
-        <div class="pn-card-cab"><div><h2 class="pn-h2">Libro de movimientos</h2><p class="pn-mini">Inmutable, con autor. Nadie puede borrar un movimiento. Ni tú.</p></div><span class="pn-mano">al fiscalizador le encanta ♥</span></div>
+        <div class="pn-card-cab"><div><h2 class="pn-h2">Libro de movimientos</h2><p class="pn-mini">Inmutable, con autor. Nadie puede borrar un movimiento.</p></div><span class="pn-mano">listo para fiscalización</span></div>
         <div class="pn-ledger">${ledger.map(([f, s, t, v, a]) => `<div class="pn-led"><span class="mono">${f}</span><b>${s}</b><span>${t}<small>${a}</small></span><span class="num ${v > 0 ? 'pn-ok' : 'pn-neg'}">${v > 0 ? '+' : '−'}${Math.abs(v)}</span></div>`).join('')}</div>
       </section>
       ${bloqueBolsas()}`;
@@ -857,7 +857,7 @@
           </div>
           <div class="pn-envio" id="pn-envio" hidden><div class="progreso"><i style="width:0%"></i></div><p class="mono" id="pn-envio-txt">Preparando…</p></div>
           <button type="button" class="btn btn-arcoiris btn-bloque" data-accion="enviar-com" id="pn-btn-enviar">${ico('comunicado')}Enviar a <span id="pn-n-seg">${seg(c.seg)}</span> socios</button>
-          <p class="pn-mano">sale por lotes de 10, sin caer en spam ✉</p>
+          <p class="pn-mano">sale por lotes de 10, sin caer en spam</p>
         </section>
         <aside class="pn-com-lado">
           <p class="eyebrow pn-prev-lbl">Vista previa · así lo ve el socio</p>
@@ -1052,7 +1052,7 @@
             <div class="pn-prev-mail-cab">${logoMarca('pn-prev-logo')}<b data-marca-nombre>${esc(d.nombre)}</b></div>
             <div class="pn-prev-mail-cuerpo"><b>¡Hola, Camila!</b><p>Tu receta vence en 15 días. Súbela desde tu app y sigue canjeando sin pausa.</p><span class="pn-prev-btn">Subir mi receta</span></div>
           </div>
-          <p class="pn-mano">cada dispensario, su propia cara ✿</p>
+          <p class="pn-mano">cada dispensario, su propia cara</p>
         </section>
       </div>`;
     },
@@ -1107,7 +1107,7 @@
         </nav>
         <div class="pn-lado-pie">
           <svg class="pn-lado-deco" viewBox="0 0 200 70" aria-hidden="true"><path d="M20 66c0-20 6-34 20-44M40 22c-10-2-16-8-18-16 8 1 14 6 18 16ZM40 22c8-4 12-10 12-18-8 3-12 9-12 18Z"/><path d="M150 66V44M136 44a14 12 0 0 1 28 0Z"/><circle cx="146" cy="36" r="1.6"/><circle cx="154" cy="38" r="1.2"/><path d="M178 66V52M172 52a6 5 0 0 1 12 0Z"/><path d="M4 66h192"/></svg>
-          <p class="pn-mano">menos caos,<br>más orden ♡</p>
+          <p class="pn-mano">menos caos,<br>más orden</p>
           <p class="pn-atajos"><kbd>1</kbd>–<kbd>0</kbd> secciones · <kbd>/</kbd> buscar · <kbd>Esc</kbd> cerrar</p>
         </div>
       </aside>
@@ -1189,7 +1189,7 @@
       <div class="pn-mas">
         <p class="eyebrow">Todo el panel</p>
         <div class="pn-mas-grid">${otros.map(s => `<button type="button" data-ir="${s.id}" aria-current="${s.id === seccion}">${ico(s.ico)}<span>${s.nombre}</span>${s.badge && s.badge() ? `<span class="badge">${s.badge()}</span>` : ''}</button>`).join('')}</div>
-        <p class="pn-mano">todo el dispensario, en tu bolsillo ✦</p>
+        <p class="pn-mano">todo el dispensario, en tu bolsillo</p>
       </div>`, 'pn-hoja-mas');
   }
   function descargar(nombre, filas) {

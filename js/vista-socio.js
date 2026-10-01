@@ -27,7 +27,7 @@
     { id: 'receta', txt: 'Receta', ico: 'receta' },
     { id: 'perfil', txt: 'Perfil', ico: 'usuario' }
   ];
-  const FILTROS = [['todos', 'Todo'], ['flores', 'Flores'], ['aceites', 'Aceites'], ['comestibles', 'Comestibles'], ['extractos', 'Extractos'], ['cbd', 'CBD']];
+  const FILTROS = [['todos', 'Todo'], ['flores', 'Flores'], ['aceites', 'Aceites y tópicos'], ['cbd', 'CBD']];
 
   let raiz = null, pantalla = null, paginas = null;
   let tab = 'inicio', filtro = 'todos', entrega = 'retiro', ocupado = false, busqueda = '';
@@ -57,7 +57,7 @@
     ];
     so.comunicadosOn = true;
     if (!so.pedidos.some(p => p.estado === 'entregado' && !p.firmado)) {
-      so.pedidos.unshift({ id: 2049, fecha: '2026-10-12', items: 'Aceite CBD 1500 mg · Gomitas THC', tokens: 63, gramos: 0, estado: 'entregado', firmado: false, entrega: 'Despacho' });
+      so.pedidos.unshift({ id: 2049, fecha: '2026-10-12', items: 'Aceite CBD 1500 mg · Ungüento CBD', tokens: 65, gramos: 0, estado: 'entregado', firmado: false, entrega: 'Despacho' });
     }
     D.guardar();
   }
@@ -129,7 +129,7 @@
       <aside class="so-presentador" aria-label="Controles del presentador">
         <p class="eyebrow">App del socio · demo en vivo</p>
         <h1 class="so-h-retro">Tu dispensario <em>en el bolsillo</em></h1>
-        <p class="so-mano so-mano-lg">toca todo, nada se rompe ♡</p>
+        <p class="so-mano so-mano-lg">demo interactiva: prueba cada acción</p>
         <div class="so-control" data-control>
           ${controlCalendario()}
         </div>
@@ -211,7 +211,7 @@
       </button>
       <button type="button" class="so-card so-mem" data-ir="perfil">
         ${anillo(Math.max(0, dm) / 365, 132, 10, 'so-an-salvia', `${ico('hoja', 'so-an-hoja')}<b class="num">${Math.max(0, dm)}</b><small>días</small>`)}
-        <span class="so-mem-txt"><b>${dm >= 0 ? 'Tu membresía<br>está activa' : 'Membresía<br>en gracia'}</b><small>Un acceso más consciente todos los días.</small><span class="so-mano">hasta el ${fechaC(so.memFin)} ♡</span></span>
+        <span class="so-mem-txt"><b>${dm >= 0 ? 'Tu membresía<br>está activa' : 'Membresía<br>en gracia'}</b><small>Un acceso más consciente todos los días.</small><span class="so-mano">hasta el ${fechaC(so.memFin)}</span></span>
       </button>
       <button type="button" class="so-card so-fila ${vig ? '' : 'vencida'}" data-ir="receta">
         <span class="so-fila-ico">${ico(vig ? 'receta' : 'candado')}</span>
@@ -234,7 +234,7 @@
         ${sugeridos.map(p => `<button type="button" class="so-sug" data-acc="ficha" data-id="${p.id}">
           <img src="${p.img}" alt="" loading="lazy"><span class="so-sug-txt"><b>${esc(p.nombre)}</b><span>${moneda(p.tokens)}</span></span></button>`).join('')}
       </div>
-      <p class="so-mano so-pie">para clubes y dispensarios ✿</p>`;
+      <p class="so-mano so-pie">para clubes y dispensarios</p>`;
     },
 
     tienda() {
@@ -243,7 +243,7 @@
       ${appTop(`<button type="button" class="so-btn-carrito ${vig ? '' : 'pausado'}" data-acc="carrito" aria-label="Carrito">${ico(vig ? 'carrito' : 'candado')}<span class="so-cont" data-cont-carrito ${itemsCarrito() ? '' : 'hidden'}>${itemsCarrito()}</span></button>`)}
       <div class="so-tit-fila"><div><h1 class="so-h-pag">Tienda</h1><p class="dim">Bienestar que se cultiva.</p></div>
         <span class="so-pill-saldo" data-pill-saldo><span class="moneda">T</span><b class="num" data-saldo>${S().socio.tokens}</b></span></div>
-      <label class="so-buscar">${ico('lupa')}<input type="search" data-buscar placeholder="Buscar flores, aceites, gomitas…" value="${esc(busqueda)}" aria-label="Buscar productos"></label>
+      <label class="so-buscar">${ico('lupa')}<input type="search" data-buscar placeholder="Buscar flores, aceites, tópicos…" value="${esc(busqueda)}" aria-label="Buscar productos"></label>
       ${vig ? '' : bannerPausa()}
       <div class="so-chips" role="tablist" aria-label="Filtrar productos">
         ${FILTROS.map(([id, t]) => `<button type="button" role="tab" class="so-chipf" data-acc="filtro" data-id="${id}" aria-selected="${filtro === id}">${t}</button>`).join('')}
@@ -350,7 +350,7 @@
         <li><button type="button" data-acc="priv-borrar">${ico('x')}<span><b>Pedir que borren mis datos</b><small>Salvo lo que exige la ley sanitaria</small></span>${ico('flecha', 'so-chev')}</button></li>
         <li><label class="so-switch-fila">${ico('comunicado')}<span><b>Recibir comunicados</b><small>Los avisos de tu receta siguen siempre</small></span><input type="checkbox" class="so-switch" data-acc="priv-comunicados" ${so.comunicadosOn !== false ? 'checked' : ''}></label></li>
       </ul>
-      <p class="so-mano so-pie">tus datos son tuyos. literal ♡</p>`;
+      <p class="so-mano so-pie">tus datos son tuyos</p>`;
     }
   };
 
@@ -365,7 +365,7 @@
   function grilla() {
     const q = busqueda.trim().toLowerCase();
     const lista = S().productos.filter(p => enFiltro(p, filtro) && (!q || (p.nombre + ' ' + p.tipo + ' ' + p.tag).toLowerCase().includes(q)));
-    if (!lista.length) return vacio('Nada por aquí', 'ni un hongo perdido. prueba otro filtro');
+    if (!lista.length) return vacio('Nada por aquí', 'prueba otro filtro');
     return lista.map((p, i) => `
       <article class="so-prod" style="--i:${i}">
         <button type="button" class="so-prod-foto" data-acc="ficha" data-id="${p.id}" aria-label="Ver ${esc(p.nombre)}">
@@ -673,7 +673,7 @@
         <span class="so-fila-ico">${ico('campana')}</span><span class="so-fila-txt"><b>Sube tu nueva receta</b><small>y sigue canjeando como siempre.</small></span>${ico('flecha', 'so-chev')}
       </button>
       <button type="button" class="btn btn-bloque so-btn-naranja" data-acc="subir-receta">${ico('descarga', 'so-rot')} Subir receta nueva</button>
-      ${c.length ? `<p class="so-mano so-centrado">tus ${itemsCarrito()} producto${itemsCarrito() > 1 ? 's' : ''} quedan guardados aquí, tranqui</p>` : `<p class="so-mano so-centrado">nada se pierde: ni tokens, ni historial</p>`}
+      ${c.length ? `<p class="so-mano so-centrado">tus ${itemsCarrito()} producto${itemsCarrito() > 1 ? 's' : ''} quedan guardados aquí</p>` : `<p class="so-mano so-centrado">nada se pierde: ni tokens, ni historial</p>`}
     </div>`;
   }
 
@@ -705,7 +705,7 @@
       ${vig
         ? `<button type="button" class="btn btn-arcoiris btn-bloque so-canjear" data-acc="canjear">${ico('token')} Canjear ${t.total} tokens</button>`
         : `<button type="button" class="btn btn-token btn-bloque" data-acc="subir-receta">${ico('camara')} Subir receta nueva</button>`}
-      <p class="so-mano so-centrado">${vig ? 'el sistema revisa receta, cupo y saldo en un segundo' : 'tus productos quedan guardados aquí, tranqui'}</p>`;
+      <p class="so-mano so-centrado">${vig ? 'el sistema revisa receta, cupo y saldo en un segundo' : 'tus productos quedan guardados aquí'}</p>`;
   }
 
   const MOTIVOS = {
@@ -768,7 +768,7 @@
         <span class="so-exito-check">${ico('check')}</span>
         <h3 class="so-hoja-tit">¡Canje listo!</h3>
         <p>Pedido <b class="mono">#${nuevoId}</b> · ${t.total} tokens · ${g(t.gramos)}</p>
-        <p class="so-mano">${entrega === 'despacho' ? 'va en camino a tu casa, como un abrazo' : 'te esperamos en el local, con calma'}</p>
+        <p class="so-mano">${entrega === 'despacho' ? 'va en camino a tu casa,' : 'te esperamos en el local'}</p>
         <div class="so-exito-checks"><span>${ico('check')} Receta vigente</span><span>${ico('check')} Dentro del cupo</span><span>${ico('check')} Saldo suficiente</span></div>
         <button type="button" class="btn btn-primario btn-bloque" data-acc="ver-pedidos">Ver mis pedidos</button>
       </div>`;
@@ -902,7 +902,7 @@
       so.receta = { medico: so.receta.medico, desde: hoy(), hasta: nuevaHasta, limite: 30, folio: 'RX-' + (90000 + Math.floor(Math.random() * 9999)) };
       D.guardar();
       await espera(300);
-      cont.insertAdjacentHTML('beforeend', `<div class="so-exito so-exito-mini"><span class="so-exito-check">${ico('check')}</span><b>Vigente hasta el ${fechaL(nuevaHasta)}</b><span class="so-mano">carrito reactivado, a disfrutar</span></div>`);
+      cont.insertAdjacentHTML('beforeend', `<div class="so-exito so-exito-mini"><span class="so-exito-check">${ico('check')}</span><b>Vigente hasta el ${fechaL(nuevaHasta)}</b><span class="so-mano">carrito reactivado</span></div>`);
       const r = cont.getBoundingClientRect(); D.fx.confeti(r.left + r.width / 2, r.top + 40, 90);
       narrar('ok', `Receta nueva: vigente hasta ${fechaC(nuevaHasta)}`, 'El carrito se reactivó solo. Nadie tuvo que tocar nada en el panel.');
       D.evento('receta', `Camila R. subió receta nueva · vigente hasta ${fechaC(nuevaHasta)}`);
@@ -934,7 +934,7 @@
         <div class="so-fi-cab"><span><b>Firma de recepción</b><small class="dim">Dibuja tu firma con el dedo</small></span><button type="button" class="so-link" data-limpiar>Limpiar</button></div>
         <div class="so-lienzo-cont">
           <canvas class="so-lienzo" aria-label="Firma aquí con el dedo o el mouse"></canvas>
-          <span class="so-lienzo-guia">firma aquí ♡</span>
+          <span class="so-lienzo-guia">firma aquí</span>
           <span class="so-lienzo-linea"></span>
         </div>
       </div>
@@ -1033,7 +1033,7 @@
       <p class="so-texto-hoja">El club recibe tu solicitud y te responde dentro del plazo legal. Lo que exige la normativa sanitaria (recetas y dispensaciones) se conserva el tiempo obligatorio; todo lo demás se borra, incluidos los archivos.</p>
       <button type="button" class="btn btn-peligro btn-bloque" data-pedir>Enviar solicitud</button>
       <button type="button" class="btn btn-fantasma btn-bloque" data-cerrar>Mejor no</button>
-      <p class="so-mano so-centrado">nadie se va enojado de aquí ♡</p>`, 'so-hoja-form');
+      <p class="so-mano so-centrado">atención ordenada y trazable</p>`, 'so-hoja-form');
     hoja.querySelector('[data-pedir]').addEventListener('click', async () => {
       await cerrarHoja();
       D.fx.toast('Solicitud enviada', 'El club te responde por correo.', ico('check'));

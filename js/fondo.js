@@ -7,10 +7,6 @@
   const D = window.DEMO = window.DEMO || {};
   const FONDOS = [
     { id: 'invernadero', n: 'Invernadero', src: 'img/arte/fondo-invernadero.jpg' },
-    { id: 'neon', n: 'Neón', src: 'img/arte/fondo-neon.jpg' },
-    { id: 'cosmos', n: 'Cosmos', src: 'img/arte/fondo-cosmos.jpg' },
-    { id: 'jamaica', n: 'Jamaica', src: 'img/arte/fondo-jamaica.jpg' },
-    { id: 'calle', n: 'Calle', src: 'img/arte/fondo-calle.jpg' },
     { id: 'montana', n: 'Montaña', src: 'img/arte/paisaje-cannabis.jpg' }
   ];
   const abs = s => new URL(s, location.href).href;

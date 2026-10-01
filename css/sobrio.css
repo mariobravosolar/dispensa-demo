@@ -1,0 +1,68 @@
+/* ============================================================
+   Dispensa — capa «sobria» (2026-09-30, auditoría con Eduardo)
+   El mercado chileno mira el cannabis desde lo medicinal: menos
+   imaginería recreativa (hongos, flores psicodélicas, mascotas,
+   notas manuscritas, degradados arcoíris) y más tono de salud y
+   bienestar. Se carga al final: para volver atrás basta quitarla.
+   ============================================================ */
+
+/* paletas: fuera morados, rosados y naranjas; verdes salvia, arena y oro suave */
+:root {
+  --fondo: #F2EEE6; --fondo-2: #FAF8F3; --fondo-3: #E7E1D5;
+  --tinta: #15241E; --tinta-2: #3F4F48; --tinta-3: #6F7D77;
+  --linea: rgba(21, 36, 30, .12); --linea-fuerte: rgba(21, 36, 30, .24);
+  --malva: #47917B; --lavanda: #A9C7B8; --rosa: #5E9F87; --naranja: #B8913A; --durazno: #CDB27A;
+  --mostaza: #D8B24E; --miel: #B8913A; --alerta: #B5452F;
+  --atardecer: linear-gradient(180deg, #10221B 0%, #173328 45%, #24503F 80%, #3E6B57 100%);
+  --token: linear-gradient(135deg, #E2C46A, #B8913A);
+  --sombra: 0 20px 50px -26px rgba(21, 36, 30, .35); --sombra-sm: 0 6px 18px -10px rgba(21, 36, 30, .3);
+}
+:root[data-modo="oscuro"] {
+  --fondo: #0F1B1E; --fondo-2: #16252A; --fondo-3: #0A1316;
+  --tinta: #EEF4F2; --tinta-2: #BFD0CB; --tinta-3: #84A09A;
+  --linea: rgba(200, 230, 222, .13); --linea-fuerte: rgba(200, 230, 222, .26);
+  --malva: #7FC2AA; --lavanda: #A9C7B8; --rosa: #7FC2AA; --naranja: #D9B44A; --durazno: #E2C46A;
+  --atardecer: linear-gradient(180deg, #0F1B1E 0%, #15292B 45%, #1E3D38 80%, #2F5A4D 100%);
+}
+:root[data-modo="verde"] { --malva: #A9D6C1; --lavanda: #C9E3D6; --rosa: #8FD1B2; --naranja: #E2C46A; }
+
+/* degradado «psico» → verde clínico; notas «a mano» en la letra normal */
+:root, :root[data-modo] {
+  --psico: linear-gradient(100deg, #2F7D62 0%, #47917B 55%, #6FB39A 100%);
+  --f-mano: var(--f-texto);
+}
+.in-grad, :root[data-modo] .in-grad { background-image: linear-gradient(95deg, var(--bosque-2), var(--salvia)) !important; }
+:root:not([data-modo]) .in-grad, :root[data-modo="claro"] .in-grad { background-image: linear-gradient(95deg, #2F7D62, #47917B) !important; }
+.btn-arcoiris { color: #fff; animation: none; background-size: 100% 100%; }
+.btn-arcoiris:hover { transform: translateY(-1px); box-shadow: 0 10px 24px -12px rgba(47, 125, 98, .55); }
+
+/* decoración psicodélica: hongos, flores, estrellas, follaje animado */
+.in-deco, .in-heroe-bosque, .in-lap-flor,
+.pz-flora, .pz-estrellas,
+.cl-flora, .cl-il-hongo, .cl-il-flor, .cl-il-estrellas, .cl-fl-hongo, .cl-fl-flor,
+.so-ilu, .pn-lado-deco, .pr-oferta-hojas { display: none !important; }
+
+/* personajes y figuras ilustradas */
+.in-zorro, .in-zorro-img, .pz-zorro-png, .cl-zorro, img.primo, svg.cogo, img.cogoman,
+.cm, .cm-final, .fin-par, .cl-guia .cl-globo::after { display: none !important; }
+
+/* notas «a mano»: fuera las decorativas, el resto como texto sereno */
+.in-mano-1, .in-mano-2, .in-mano-3, .in-mano-der, .pz-mano { display: none !important; }
+.cl-mano, .in-mano, .pn-mano, .po-mano, .so-mano {
+  font-family: var(--f-texto) !important;
+  font-size: .95rem !important;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.4 !important;
+  letter-spacing: 0;
+  transform: none !important;
+  text-shadow: none !important;
+  color: var(--tinta-3) !important;
+}
+.cl-mano-grande, .so-mano-lg { font-size: 1.1rem !important; }
+
+/* club: el velo morado de la portada pasa a verde noche */
+.cl-hero { --cl-noche: color-mix(in srgb, #0C1C16 82%, var(--fondo-3)); --cl-crema: #F3F7F2; }
+.cl-il-m1 { fill: #1F3B30; } .cl-il-m2 { fill: #16302A; } .cl-il-m3 { fill: #0C1C16; }
+.cl-il-lago { fill: #6FB39A; } .cl-il-luna { fill: #E2C46A; } .cl-il-nieve { fill: #E7EFEA; }
+.cl-esc-mano { display: none !important; }

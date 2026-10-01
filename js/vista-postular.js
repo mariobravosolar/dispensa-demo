@@ -97,7 +97,7 @@
 
   function pasoDatos() {
     return `<h2 class="po-h">Hola, <em>empecemos por ti.</em></h2>
-      <p class="po-lead">Solo el comité verá esto. Palabra de CogoMan.</p>
+      <p class="po-lead">Tus datos son confidenciales: solo los revisa el comité de admisión.</p>
       <div class="po-grid2">
         ${campo('nombre', 'Nombre completo', 'text', 'autocomplete="name" placeholder="Como aparece en tu cédula"')}
         ${campo('rut', 'RUT', 'text', 'inputmode="text" autocomplete="off" placeholder="12.345.678-9" maxlength="12"')}
@@ -251,7 +251,7 @@
           <button type="button" class="btn btn-primario btn-bloque po-entrar">${ico('telefono')} Entrar a la app</button>
         </div>
       </div>
-      <p class="po-v-nota po-mano">esperando tu solicitud… sin apuro</p>
+      <p class="po-v-nota po-mano">esperando tu solicitud</p>
     </aside>`;
   }
 
@@ -541,7 +541,7 @@
       const s = $('.po-sello').getBoundingClientRect(); D.fx.confeti(s.left + s.width / 2, s.top + s.height / 2, 40);
       await esp(1300); if (!sigue()) return;
       etapa('viaja2'); await esp(1300); if (!sigue()) return;
-      etapa('correo'); decir('te llegó un correo ✉');
+      etapa('correo'); decir('te llegó un correo');
       D.notificar({ titulo: `¡Bienvenido/a a ${D.state.dispensario.nombre}!`, txt: 'Tu solicitud fue aprobada. Paga tu membresía anual para activar tu cuenta.', tipo: 'bienvenida' });
       D.fx.toast('Correo de bienvenida enviado', d.email, '✉');
       await esp(1300); if (!sigue()) return;
@@ -556,7 +556,7 @@
       $('.po-vence').textContent = D.fmt.fecha(vence);
       $('.po-pagado').hidden = false;
       const chip = $('.po-mem-chip'); chip.className = 'chip ok po-mem-chip'; chip.textContent = 'Membresía activa';
-      etapa('pagado'); $('.po-v-nota').textContent = 'bienvenida a la comunidad ♡';
+      etapa('pagado'); $('.po-v-nota').textContent = 'bienvenida a la comunidad';
       D.evento('pago', `${d.nombre.trim().split(' ')[0]} pagó su membresía · $20.000 por Webpay`);
       const r = $('.po-pagado').getBoundingClientRect();
       D.fx.confeti(r.left + r.width / 2, r.top, 110);

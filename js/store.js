@@ -20,11 +20,7 @@
     { id: 7, nombre: 'Rainbow Guava', tipo: 'Flor sativa', cultivo: 'Indoor', gramos: 5, tokens: 39, img: 'img/guaba.jpg', stock: 19, thc: '21%', cbd: '<1%', tag: 'Ánimo' },
     { id: 8, nombre: 'Lemon Octane CBD', tipo: 'Flor CBD', cultivo: 'Indoor', gramos: 8, tokens: 30, img: 'img/lemon.jpg', stock: 27, thc: '<1%', cbd: '14%', tag: 'Sin psicoactivo' },
     { id: 9, nombre: 'Aceite CBD 1500 mg', tipo: 'Aceite sublingual', cultivo: 'Extracto', gramos: 0, tokens: 45, img: 'img/aceite.jpg', stock: 22, thc: '0%', cbd: '1500 mg', tag: 'Gotero 30 ml' },
-    { id: 10, nombre: 'Ungüento CBD', tipo: 'Tópico', cultivo: 'Extracto', gramos: 0, tokens: 20, img: 'img/unguento.jpg', stock: 35, thc: '0%', cbd: '500 mg', tag: 'Articulaciones' },
-    { id: 11, nombre: 'Gomitas THC 50 mg', tipo: 'Comestible', cultivo: '6 unidades', gramos: 0, tokens: 18, img: 'img/gomitas.jpg', stock: 40, thc: '50 mg', cbd: '—', tag: 'Dosis exacta' },
-    { id: 12, nombre: 'Live Resin 1 g', tipo: 'Extracto', cultivo: 'Indoor', gramos: 1, tokens: 42, img: 'img/resin.jpg', stock: 6, thc: '78%', cbd: '—', tag: 'Alta potencia' },
-    { id: 13, nombre: 'Pre-roll x5', tipo: 'Pre-enrolado', cultivo: 'Híbrido', gramos: 3.5, tokens: 22, img: 'img/preroll.jpg', stock: 50, thc: '19%', cbd: '<1%', tag: 'Listo para usar' },
-    { id: 14, nombre: 'Kief 1 g', tipo: 'Tricomas', cultivo: 'Índica', gramos: 1, tokens: 15, img: 'img/kief.jpg', stock: 14, thc: '45%', cbd: '—', tag: 'Para espolvorear' }
+    { id: 10, nombre: 'Ungüento CBD', tipo: 'Tópico', cultivo: 'Extracto', gramos: 0, tokens: 20, img: 'img/unguento.jpg', stock: 35, thc: '0%', cbd: '500 mg', tag: 'Articulaciones' }
   ];
 
   const bolsas = [
@@ -112,7 +108,7 @@
     };
   }
 
-  const CLAVE = 'dispensa-demo-v1';
+  const CLAVE = 'dispensa-demo-v2';
   let state;
   try { state = JSON.parse(localStorage.getItem(CLAVE)) || estadoInicial(); } catch (e) { state = estadoInicial(); }
 

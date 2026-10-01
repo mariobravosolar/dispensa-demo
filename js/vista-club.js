@@ -10,11 +10,11 @@
   const alSalir = f => limpiezas.push(f);
 
   const ESCENAS = [
-    { tag: 'Bienvenida', t1: 'Bienvenido', t2: 'a tu *club*', sub: 'Comunidad, bienestar y acceso consciente al cannabis medicinal.', mano: 'Personas reales. Acceso real. Una comunidad que te cuida ♡', anim: 'bienvenida' },
-    { tag: 'Receta inteligente', t1: 'Tu receta,', t2: 'tu *medida*', sub: 'Tu cupo mensual sale de tu receta. Ni un gramo más, ni uno menos.', mano: 'la dosis la pone tu médico, no el antojo ♡', anim: 'frasco' },
-    { tag: 'App del socio', t1: 'Todo desde', t2: 'tu *celular*', sub: 'Tu saldo, tu receta y tus pedidos en la palma de la mano.', mano: 'menos WhatsApp, más calma ♡', anim: 'celular' },
-    { tag: 'Despacho con firma', t1: 'Te lo llevamos', t2: 'y *firmas* al recibir', sub: 'Llega a tu puerta. Firmas en la pantalla y queda registrado.', mano: 'tu firma vale más que un «déjalo ahí» ♡', anim: 'despacho', largo: true },
-    { tag: 'Comunidad', t1: 'Una comunidad', t2: 'que *cuida*', sub: 'Socios, médicos y equipo del club, cada uno cuidando al otro.', mano: 'plantas · personas · territorio ♡', anim: 'comunidad', largo: true }
+    { tag: 'Bienvenida', t1: 'Bienvenido', t2: 'a tu *club*', sub: 'Comunidad, bienestar y acceso consciente al cannabis medicinal.', mano: 'Personas reales. Acceso real. Una comunidad que te cuida', anim: 'bienvenida' },
+    { tag: 'Receta inteligente', t1: 'Tu receta,', t2: 'tu *medida*', sub: 'Tu cupo mensual sale de tu receta. Ni un gramo más, ni uno menos.', mano: 'la dosis la pone tu médico, no el antojo', anim: 'frasco' },
+    { tag: 'App del socio', t1: 'Todo desde', t2: 'tu *celular*', sub: 'Tu saldo, tu receta y tus pedidos en la palma de la mano.', mano: 'menos WhatsApp, más calma', anim: 'celular' },
+    { tag: 'Despacho con firma', t1: 'Te lo llevamos', t2: 'y *firmas* al recibir', sub: 'Llega a tu puerta. Firmas en la pantalla y queda registrado.', mano: 'tu firma vale más que un «déjalo ahí»', anim: 'despacho', largo: true },
+    { tag: 'Comunidad', t1: 'Una comunidad', t2: 'que *cuida*', sub: 'Socios, médicos y equipo del club, cada uno cuidando al otro.', mano: 'plantas · personas · territorio', anim: 'comunidad', largo: true }
   ];
   const DURACION = 7000;
 
@@ -103,16 +103,16 @@
     return `<svg class="cl-flora cl-flora-${lado}" viewBox="0 0 160 300" aria-hidden="true"><g class="cl-fl-mata">${hojas}</g>${flor(30, 120, 1.1, 'rosa')}${flor(118, 70, .9, 'naranja')}${flor(96, 170, .75, 'mostaza')}${flor(20, 210, .7, 'naranja')}${hongo}</svg>`;
   }
 
-  /* ---------- el guía: Cogo, el cogollo ---------- */
+  /* ---------- el guía (sin personaje: solo el texto del equipo de admisión) ---------- */
   const zorro = (D.personaje ? D.personaje.svg('cl-zorro') : '');
 
-  const SALUDO = 'Te acompaño en el proceso. ¡Sí, te guiamos!';
+  const SALUDO = 'Te acompañamos en cada paso del proceso de admisión.';
   const PASOS = [
-    { n: 1, ico: 'telefono', t: 'Postulas online', m: '10 minutos', dice: '¡Hola! Soy DJ Gorrito, primo de CogoMan. Primero llenas un formulario cortito. Diez minutos, desde el sofá.' },
-    { n: 2, ico: 'adjunto', t: 'Subes tus documentos', m: 'Fotos o PDF', dice: 'Luego subes fotos de tus papeles. Sí, la del carnet también. No juzgamos.' },
-    { n: 3, ico: 'socios', t: 'El comité revisa', m: 'En 48 horas', dice: 'El comité lee tu solicitud con calma. Personas de verdad, no un robot apurado.' },
-    { n: 4, ico: 'correo', t: 'Te damos la bienvenida', m: 'Por correo', dice: 'Si todo está en orden, te llega un correo de bienvenida. Te va a gustar.' },
-    { n: 5, ico: 'membresia', t: 'Pagas tu membresía y entras', m: '$20.000 al año', dice: 'Pagas la membresía anual y listo: se abre tu app y el catálogo. ¡Adentro!' }
+    { n: 1, ico: 'telefono', t: 'Postulas online', m: '10 minutos', dice: 'Primero completas un formulario breve en línea. Toma unos diez minutos.' },
+    { n: 2, ico: 'adjunto', t: 'Subes tus documentos', m: 'Fotos o PDF', dice: 'Luego adjuntas tus documentos: cédula de identidad y receta médica, en foto o PDF.' },
+    { n: 3, ico: 'socios', t: 'El comité revisa', m: 'En 48 horas', dice: 'El comité de admisión revisa tu solicitud y tus antecedentes médicos.' },
+    { n: 4, ico: 'correo', t: 'Te damos la bienvenida', m: 'Por correo', dice: 'Si todo está en orden, recibes un correo de bienvenida con los siguientes pasos.' },
+    { n: 5, ico: 'membresia', t: 'Pagas tu membresía y entras', m: '$20.000 al año', dice: 'Pagas la membresía anual y se habilita tu cuenta de socio.' }
   ];
 
   const REQUISITOS = [
@@ -196,7 +196,7 @@
       <div class="contenedor">
         <p class="cl-eyebrow cl-rv" data-dir="abajo">Quiénes somos</p>
         <h2 class="cl-h2 cl-rv" data-dir="izq">Un club, <b>no una tienda.</b></h2>
-        <p class="cl-mano cl-mano-grande cl-rv" data-dir="der">plantas · personas · territorio ♡</p>
+        <p class="cl-mano cl-mano-grande cl-rv" data-dir="der">plantas · personas · territorio</p>
         <div class="cl-tres">
           ${items.map((it, i) => `<div class="cl-tres-item cl-rv" data-dir="${['izq', 'abajo', 'der'][i]}" style="--dl:${i * 120}ms">
             <div class="cl-circulo">${ico(it.ico)}<svg class="cl-anillo" viewBox="0 0 120 120" aria-hidden="true"><circle class="cl-trazo" pathLength="1" cx="60" cy="60" r="56"/></svg></div>
@@ -214,7 +214,7 @@
         <div class="cl-guia">
           <div class="cl-globo" aria-live="polite"><span class="cl-globo-txt">${SALUDO}</span></div>
           ${zorro}
-          <p class="cl-mano cl-guia-nombre">DJ Gorrito, anfitrión del club</p>
+          <p class="cl-mano cl-guia-nombre">Equipo de admisión del club</p>
         </div>
         <div class="cl-como-der">
           <div class="cl-como-cab">
@@ -222,7 +222,7 @@
               <h2 class="cl-h2 cl-rv" data-dir="izq">Cómo ser <b>parte</b></h2>
               <p class="cl-bajada cl-rv" data-dir="izq">Cinco pasos, un mismo propósito: tu bienestar.</p>
             </div>
-            <p class="cl-mano cl-rot cl-rv" data-dir="der">paso a paso,<br>sin enredos ♡</p>
+            <p class="cl-mano cl-rot cl-rv" data-dir="der">paso a paso</p>
           </div>
           <ol class="cl-pasos">
             ${PASOS.map((p, i) => `<li class="cl-paso cl-rv" data-dir="der" style="--dl:${i * 110}ms" data-paso="${i}">
@@ -252,12 +252,12 @@
           ${REQUISITOS.map((r, i) => `<div class="cl-req cl-rv" data-dir="der" style="--dl:${i * 90}ms" tabindex="0">
             <span class="cl-req-ico">${icono(r)}</span><h3>${r.t}</h3><p class="cl-mano">${r.m}</p></div>`).join('')}
         </div>
-        <p class="cl-mano cl-rot cl-req-mano cl-rv" data-dir="der">primero la regla,<br>después el catálogo ♡</p>
+        <p class="cl-mano cl-rot cl-req-mano cl-rv" data-dir="der">primero la regla,<br>después el catálogo</p>
       </div>
     </section>`;
   }
   function candado() {
-    const imgs = ['img/amethyst.jpg', 'img/aceite.jpg', 'img/celestial.jpg', 'img/gomitas.jpg', 'img/wedding.jpg'].map(x => `<img src="${x}" alt="" loading="lazy">`).join('');
+    const imgs = ['img/amethyst.jpg', 'img/aceite.jpg', 'img/celestial.jpg', 'img/unguento.jpg', 'img/lemon.jpg'].map(x => `<img src="${x}" alt="" loading="lazy">`).join('');
     return `
     <section class="cl-sec cl-candado-sec" aria-label="Catálogo reservado para socios">
       ${flora('der')}
@@ -277,7 +277,7 @@
             </div>
           </div>
         </div>
-        <p class="cl-mano cl-rot cl-cand-mano">buenas plantas.<br>mejores días ♡</p>
+        <p class="cl-mano cl-rot cl-cand-mano">buenas plantas.<br>mejores días</p>
       </div>
     </section>`;
   }
@@ -288,7 +288,7 @@
         <div>
           <p class="cl-eyebrow cl-rv" data-dir="abajo">Política de admisión</p>
           <h2 class="cl-h2 cl-rv" data-dir="izq">Las reglas, <b>claritas.</b></h2>
-          <p class="cl-mano cl-mano-grande cl-rv" data-dir="izq">sin letra chica, prometido</p>
+          <p class="cl-mano cl-mano-grande cl-rv" data-dir="izq">sin letra chica</p>
         </div>
         <div class="cl-acordeon">
           ${POLITICA.map((p, i) => `<details class="cl-rv" data-dir="der" style="--dl:${i * 80}ms" ${i === 0 ? 'open' : ''}>
@@ -363,7 +363,7 @@
       </div>
       <footer class="cl-pie contenedor">
         <span>${ico('hoja')} Raíz Austral · Club de cannabis medicinal · ${D.state.dispensario.ciudad}</span>
-        <span class="cl-mano">Todo en regla, todo en orden ♡</span>
+        <span class="cl-mano">Todo en regla, todo en orden</span>
         <span class="cl-pie-dispensa">${ico('logo')} Hecho con Dispensa</span>
       </footer>
     </section>`;
@@ -495,7 +495,7 @@
       el.src = img.src; el.alt = ''; el.className = 'cl-zorro cl-zorro-img';
       svg.replaceWith(el);
     };
-    return; // el guía ahora es Cogo (js/personaje.js)
+    return; // sin guía animado (capa sobria)
   }
 
   function tokensDemo(raiz) {

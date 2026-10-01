@@ -55,7 +55,7 @@
       <h1 class="pz-mega pz-a pz-iz" ${d(.1)}>Dispensa</h1>
       <p class="pz-lema pz-a pz-iz" ${d(.3)}>La <em>aplicación</em> para dispensarios de cannabis medicinal.</p>
       <p class="pz-paises pz-a pz-ab" ${d(.6)}><span>${ico('mundo')}Chile</span><span>${ico('mundo')}Argentina</span></p>
-      <p class="pz-mano pz-a pz-ab" ${d(1)}>para clubes y dispensarios ♡</p>
+      <p class="pz-mano pz-a pz-ab" ${d(1)}>para clubes y dispensarios</p>
     </div>
     <p class="pz-pista pz-a pz-ab" ${d(1.8)}>Avanza con las flechas ${ico('flecha')} o deslizando</p>`;
   }
@@ -79,7 +79,7 @@
         <p class="pz-eyebrow pz-a pz-iz">El problema</p>
         <h2 class="pz-t pz-a pz-iz" ${d(.1)}>Así es el día<br>del dueño <em>hoy</em>.</h2>
         <p class="pz-sub pz-a pz-iz" ${d(.3)}>Todo pasa por tu celular. Y por tu cabeza.</p>
-        <p class="pz-mano pz-a pz-ab" ${d(2.4)}>spoiler: no tiene que ser así</p>
+        <p class="pz-mano pz-a pz-ab" ${d(2.4)}>no tiene que ser así</p>
       </div>
       <div class="pz-caos" aria-label="Tareas que hoy se hacen a mano">${cartas}</div>
     </div>`;
@@ -104,7 +104,7 @@
         <p class="pz-eyebrow pz-a pz-iz">La idea</p>
         <h2 class="pz-t pz-a pz-iz" ${d(.1)}>Todo <em>conectado</em>.<br>Un solo sistema.</h2>
         <p class="pz-sub pz-a pz-iz" ${d(.3)}>Lo que haces en el panel, el socio lo ve en su app. Al tiro.</p>
-        <p class="pz-mano pz-a pz-ab" ${d(2)}>chao, siete apps distintas</p>
+        <p class="pz-mano pz-a pz-ab" ${d(2)}>una sola plataforma, no siete</p>
       </div>
       <div class="pz-radial">
         <svg class="pz-radial-svg" viewBox="0 0 100 100" aria-hidden="true">
@@ -545,7 +545,7 @@
           <p class="pz-eyebrow pz-a pz-iz">Lo que ganas tú</p>
           <h2 class="pz-t pz-a pz-iz" ${d(.1)}>Menos caos. <em>Más dispensario.</em></h2>
         </div>
-        <p class="pz-mano pz-a pz-de" ${d(2.2)}>y de paso, duermes tranquilo</p>
+        <p class="pz-mano pz-a pz-de" ${d(2.2)}>con trazabilidad completa</p>
       </div>
       <div class="pz-gana">${g.map((x, k) => `<div class="pz-gana-c pz-vidrio pz-c-${x[3]} pz-a pz-pop" ${d((.35 + k * .25).toFixed(2))}><span>${ico(x[0])}</span><div><b>${x[1]}</b><small>${x[2]}</small></div></div>`).join('')}</div>
     </div>`;
