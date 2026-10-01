@@ -532,7 +532,7 @@
       pintar();
       const r = e.currentTarget.getBoundingClientRect();
       D.fx.confeti(r.left + r.width / 2, r.top, 60);
-      D.fx.toast('Receta nueva cargada', 'El carrito se reactivó solo. Nadie tuvo que llamar a nadie.');
+      D.fx.toast('Receta nueva cargada', 'El carrito se reactivó automáticamente.');
     });
     pintar();
   }

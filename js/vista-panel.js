@@ -1074,7 +1074,7 @@
             let url; try { url = cv.toDataURL('image/png'); } catch (err) { url = lector.result; }
             D.state.dispensario.logo = url; D.emit('marca', D.state.dispensario);
             pintarMarca(); repintar();
-            D.fx.toast('Logo actualizado', 'Mira la esquina: ya es tuyo.', '✓');
+            D.fx.toast('Logo actualizado', 'Ya aparece en el panel, la app y los correos.', '✓');
           };
           img.src = lector.result;
         };

@@ -462,16 +462,16 @@
 
     async function decir(txt) {
       const yo = ++tipeo;
-      zor.classList.add('habla');
-      if (D.fx.reducido) { globo.textContent = txt; zor.classList.remove('habla'); return; }
+      if (zor) zor.classList.add('habla');
+      if (D.fx.reducido) { globo.textContent = txt; if (zor) zor.classList.remove('habla'); return; }
       globo.textContent = '';
       for (const ch of txt) { if (yo !== tipeo) return; globo.textContent += ch; await new Promise(r => setTimeout(r, 18)); }
-      if (yo === tipeo) zor.classList.remove('habla');
+      if (yo === tipeo && zor) zor.classList.remove('habla');
     }
     function activar(n) {
       actual = n;
       pasos.forEach((p, k) => { p.classList.toggle('actual', k === n); p.classList.toggle('hecho', k < n); });
-      zor.classList.remove('salta'); void zor.offsetWidth; zor.classList.add('salta');
+      if (zor) { zor.classList.remove('salta'); void zor.offsetWidth; zor.classList.add('salta'); }  // sin personaje en la capa sobria
       decir(n < 0 ? SALUDO : PASOS[n].dice);
     }
     function ciclo() {

@@ -91,12 +91,14 @@
   background: #F2EEE6;
 }
 /* tarjetas: blanco puro con sombra suave, para que se despeguen del fondo */
-:root[data-modo="claro"] :is(.in-mod, .in-cel-sec, .in-viaje, .in-gan, .cl-quienes, .cl-como, .cl-politica, .cl-faq) {
+:root[data-modo="claro"] :is(.in-mod, .in-viaje, .in-gan, .in-cel-sec, .cl-quienes, .cl-como, .cl-politica, .cl-faq) {
   --sombra: 0 14px 34px -20px rgba(21, 36, 30, .35); --sombra-sm: 0 6px 16px -10px rgba(21, 36, 30, .28);
 }
 
-/* bandas verde oscuro: textos claros y tarjetas translúcidas */
-:root[data-modo="claro"] :is(.in-gram, .in-final, .in-pie, .cl-candado-sec) {
+/* OSCURO (verde noche, letras claras): portadas y diapositivas con foto, pies de página y cierres,
+   más una banda intermedia por página para que no quede plano. Todo lo demás, claro. */
+:root[data-modo="claro"] :is(.in-heroe, .in-gram, .in-final, .in-pie, .cl-candado-sec,
+  .pz-d-portada, .pz-d-idea, .pz-d-app, .pz-d-comunicados, .pz-d-planes) {
   --fondo: #0F2A20; --fondo-2: rgba(255, 255, 255, .07); --fondo-3: rgba(255, 255, 255, .04);
   --tinta: #F1F6F2; --tinta-2: #C6D6CD; --tinta-3: #93AAA0;
   --linea: rgba(215, 235, 222, .14); --linea-fuerte: rgba(215, 235, 222, .28);
@@ -115,10 +117,20 @@
     radial-gradient(70% 80% at 0% 100%, rgba(95, 196, 143, .14), transparent 65%),
     linear-gradient(160deg, #0B1F18 0%, #0F2A20 50%, #1B4535 100%);
 }
-:root[data-modo="claro"] .in-pie { background: #0B1F18; border-top-color: rgba(215, 235, 222, .1); }
-:root[data-modo="claro"] :is(.in-gram, .in-final, .cl-candado-sec) .in-grad { background-image: linear-gradient(95deg, #8FD9B3, #E9C45A) !important; }
-:root[data-modo="claro"] .in-final .btn-arcoiris { background: #E9C45A; color: #0B1F18; }
-:root[data-modo="claro"] .in-final .btn-fantasma { color: #F1F6F2; border-color: rgba(241, 246, 242, .35); }
+:root[data-modo="claro"] :is(.in-heroe, .in-gram, .in-final, .cl-candado-sec) .in-grad { background-image: linear-gradient(95deg, #8FD9B3, #E9C45A) !important; }
+:root[data-modo="claro"] :is(.in-heroe, .in-final) .btn-fantasma { color: #F1F6F2; border-color: rgba(241, 246, 242, .4); }
+:root[data-modo="claro"] :is(.in-heroe, .in-final) .btn:not(.btn-fantasma) { background: #E9C45A; color: #0B1F18; }
+/* los equipos de muestra dentro de la portada siguen mostrando la app en modo claro */
+:root[data-modo="claro"] .in-heroe .in-heroe-mock {
+  --fondo: #F2EEE6; --fondo-2: #FAF8F3; --fondo-3: #E7E1D5;
+  --tinta: #15241E; --tinta-2: #3F4F48; --tinta-3: #6F7D77;
+  --linea: rgba(21, 36, 30, .12); --linea-fuerte: rgba(21, 36, 30, .24);
+  --bosque: #0D3D2E; --bosque-2: #47917B; --sobre-bosque: #F7F0E3; --salvia: #47917B; --malva: #47917B; --rosa: #5E9F87;
+  --mostaza: #D8B24E; --naranja: #B8913A; --miel: #B8913A;
+  --ok: #2F7D62; --ok-fondo: rgba(47,125,98,.13); --aviso: #B7800A; --aviso-fondo: rgba(183,128,10,.14); --alerta: #B5452F; --alerta-fondo: rgba(201,65,46,.12);
+  --in-vidrio: rgba(250, 248, 243, .92); --in-borde: rgba(47, 125, 98, .3);
+  color: var(--tinta);
+}
 
 /* cierre del club: velo verde noche en vez de morado */
 .cl-final-fondo::before { background: radial-gradient(ellipse at 50% 55%, rgba(8, 24, 18, .62), rgba(8, 24, 18, .2) 70%) !important; }
@@ -128,3 +140,48 @@
 .cl-cand-ico { background: rgba(8, 24, 18, .5) !important; }
 .cl-an-tel { fill: rgba(8, 24, 18, .6); }
 .cl-cand-centro { background: radial-gradient(circle at center, rgba(8, 24, 18, .6), rgba(8, 24, 18, .18) 70%) !important; }
+
+/* pie del inicio: banda de cierre oscura */
+:root[data-modo="claro"] .in-pie { background: #0B1F18; border-top-color: rgba(215, 235, 222, .1); }
+/* club «Cómo ser parte»: sin foto difuminada en blanco, banda salvia limpia */
+:root[data-modo="claro"] .cl-como::before { display: none; }
+/* presentación: foto protagonista solo en diapositivas oscuras; en las claras, fuera el velo borroso */
+:root[data-modo="claro"] :is(.pz-d-receta, .pz-d-gana) .pz-foto { display: none; }
+:root[data-modo="claro"] :is(.pz-d-idea, .pz-d-planes) .pz-foto-velo { opacity: .5; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 55%); mask-image: linear-gradient(90deg, transparent 0%, #000 55%); }
+
+/* ============================================================
+   QA visual (2026-10-01): paddings simétricos y notas sueltas fuera
+   ============================================================ */
+:root[data-modo="claro"] #vista :is(.seccion, .cl-sec) { padding-block: clamp(64px, 7.5vw, 100px) !important; }
+:root[data-modo="claro"] #vista :is(.seccion, .cl-sec) > .contenedor > :last-child,
+:root[data-modo="claro"] #vista :is(.seccion, .cl-sec) > :last-child { margin-bottom: 0 !important; }
+.cl-req-mano, .cl-cand-mano { display: none !important; }
+/* cierre del club: la foto empieza con borde limpio, sin degradado claro encima */
+.cl-final-fondo::after { display: none !important; }
+/* club: el «globo» del guía (sin personaje) pasa a ser una nota informativa a todo el ancho */
+.cl-guia { display: block !important; max-width: none !important; }
+.cl-guia .cl-globo { font-size: 1.12rem !important; line-height: 1.4 !important; min-height: 0 !important; border-radius: 18px !important; border-left: 4px solid var(--salvia) !important; margin: 0 !important; }
+.cl-globo::after { display: none !important; }
+@media (max-width: 900px) {
+  .cl-guia .cl-globo { font-size: 1.05rem; padding: 14px 16px; }
+  .cl-guia { margin-bottom: 8px; }
+}
+@media (max-width: 560px) {
+  .cl-cand-ico { width: 64px !important; height: 64px !important; margin-bottom: 2px !important; }
+  .cl-cand-ico svg { width: 28px; height: 28px; }
+}
+
+/* fondos con manchas difusas (ruido) → planos */
+:root[data-modo="claro"] .pz { background: var(--fondo); }
+:root[data-modo="claro"] .po-fondo,
+:root[data-modo="claro"] .so-fondo { background: none; }
+:root[data-modo="claro"] .so-pantalla { background: var(--fondo); }
+:root[data-modo="claro"] .pn { background: var(--fondo); }
+:root[data-modo="claro"] .pn-tel-pant { background: var(--fondo); }
+:root[data-modo="claro"] .in-gan-t::before, :root[data-modo="claro"] .in-final::before { display: none; }
+:root[data-modo="claro"] .so-luna { display: none; }
+:root[data-modo="claro"] .so-montes { display: none; }
+/* banner «Si vence, el carrito se pausa solo»: fondo plano, el rojo queda solo en el acento */
+:root[data-modo="claro"] .in-receta { background: #FFFFFF !important; border-color: rgba(21, 36, 30, .12) !important; box-shadow: var(--sombra-sm) !important; }
+/* «Así se ve con Dispensa»: menos aire entre el título y las tarjetas en pantallas anchas */
+@media (min-width: 900px) { .in-ad h2 { min-height: 1.15em; margin-bottom: 28px; } }

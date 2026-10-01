@@ -335,7 +335,7 @@
         <div class="so-memb-pie"><b class="num">${Math.max(0, dm)} días</b><button type="button" class="btn btn-primario btn-sm" data-acc="renovar">Renovar · $20.000</button></div>
       </div>
       <div class="so-sec-tit"><h2>Mis pedidos</h2><small class="dim">${pedidos.length} en total</small></div>
-      ${pedidos.length ? `<ul class="so-pedidos">${pedidos.map(pedidoHTML).join('')}</ul>` : vacio('Aún no hay pedidos', 'la tienda te espera, sin apuro')}
+      ${pedidos.length ? `<ul class="so-pedidos">${pedidos.map(pedidoHTML).join('')}</ul>` : vacio('Aún no hay pedidos', 'cuando canjees, tus pedidos aparecen aquí')}
       <div class="so-card so-presenta-movil">
         <p class="eyebrow">Modo presentador</p>
         <div class="so-club-btns">
@@ -410,7 +410,7 @@
 
   function movsHTML() {
     const m = S().socio.movs || [];
-    if (!m.length) return `<li>${vacio('Sin movimientos', 'tu billetera está en modo zen')}</li>`;
+    if (!m.length) return `<li>${vacio('Sin movimientos', 'aquí verás tus aportes y canjes')}</li>`;
     return m.map(x => `<li class="${x.tokens > 0 ? 'mas' : 'menos'}">
       <span class="so-mov-ico">${ico(x.tokens > 0 ? 'mas' : 'carrito')}</span>
       <span class="so-mov-txt"><b>${esc(x.txt)}</b><small>${fechaC(x.fecha)} · ${esc(x.medio)}</small></span>
@@ -566,7 +566,7 @@
   const NOT_ICO = { info: 'comunicado', receta: 'receta', producto: 'flor', pedido: 'camion', pago: 'token', firma: 'firma' };
   function notifsHTML() {
     const ns = S().notificaciones;
-    if (!ns.length) return vacio('Silencio total', 'ni los grillos. todo en orden');
+    if (!ns.length) return vacio('Sin avisos nuevos', 'todo en orden');
     const nuevas = ns.filter(n => !n.leida), viejas = ns.filter(n => n.leida);
     const item = n => `<li class="so-not ${n.leida ? '' : 'nueva'}">
       <span class="so-not-av">${ico(NOT_ICO[n.tipo] || 'campana')}</span>
@@ -680,7 +680,7 @@
   function carritoHTML(motivo) {
     const c = S().carrito, vig = D.recetaVigente(), t = totales(), so = S().socio;
     if (!vig) return pausaHero();
-    if (!c.length) return `<h3 class="so-hoja-tit">Tu carrito</h3>${vacio('Más vacío que el local un lunes', '(eso se arregla en la tienda)')}<button type="button" class="btn btn-fantasma btn-bloque" data-acc="ir-tienda">Ir a la tienda</button>`;
+    if (!c.length) return `<h3 class="so-hoja-tit">Tu carrito</h3>${vacio('Tu carrito está vacío', 'agrega productos desde la tienda')}<button type="button" class="btn btn-fantasma btn-bloque" data-acc="ir-tienda">Ir a la tienda</button>`;
     const filas = c.map(it => { const p = prod(it.id); return `<li class="so-ci">
       <img src="${p.img}" alt=""><span class="so-ci-txt"><b>${esc(p.nombre)}</b><small>${p.gramos ? g(p.gramos * it.cant) + ' · ' : ''}${p.tokens} c/u</small></span>
       <span class="so-stepper so-stepper-sm"><button type="button" data-acc="cant" data-id="${p.id}" data-d="-1" aria-label="Menos">${ico('menos')}</button><b class="num">${it.cant}</b><button type="button" data-acc="cant" data-id="${p.id}" data-d="1" aria-label="Más">${ico('mas')}</button></span>

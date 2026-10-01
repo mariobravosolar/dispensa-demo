@@ -28,7 +28,7 @@
   ];
   const PREGUNTAS = [
     { id: 'exp', q: '¿Has usado cannabis medicinal antes?', o: ['Nunca', 'Alguna vez', 'Regularmente'] },
-    { id: 'forma', q: '¿Cómo prefieres usarlo?', o: ['Flor', 'Aceite', 'Tópico', 'Comestible'] },
+    { id: 'forma', q: '¿Cómo prefieres usarlo?', o: ['Flor', 'Aceite', 'Tópico', 'Aún no sé'] },
     { id: 'entrega', q: '¿Cómo quieres recibir tus pedidos?', o: ['Despacho a domicilio', 'Retiro en el local'] },
     { id: 'supo', q: '¿Cómo supiste de nosotros?', o: ['Mi médico', 'Un amigo', 'Redes sociales', 'Otro'] }
   ];
