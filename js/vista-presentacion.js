@@ -30,7 +30,7 @@
   const reiniciarAnim = el => { if (!el) return; el.classList.remove('pz-on'); void el.offsetWidth; el.classList.add('pz-on'); };
   const d = s => `style="--d:${s}s"`;
   /** zorro culpeo, la mascota, con globo de diálogo */
-  const zorro = (clase, globo, dd) => `<div class="pz-zorro-png ${clase}" style="--d:${dd || .8}s" aria-hidden="true"><span class="pz-globo">${globo}</span><img src="img/arte/zorro.png" alt="" draggable="false" onerror="this.parentNode.remove()"></div>`;
+  const zorro = (clase, globo, dd) => `<div class="pz-zorro-png ${clase}" style="--d:${dd || .8}s" aria-hidden="true"><span class="pz-globo">${globo}</span><img src="img/arte/zorro.png" alt="" draggable="false" onerror="this.parentNode && this.parentNode.remove()"></div>`;
   const RUTA = n => typeof n === 'number' ? `img/escenas/escena-${n}.jpg` : n;
   /* la url va directa en el estilo en línea (dentro de una variable CSS se resolvería contra la carpeta css/) */
   const foto = (n, c) => /paisaje/.test(n)
