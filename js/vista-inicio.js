@@ -93,7 +93,7 @@
           <p class="in-lead anim-abajo" style="animation-delay:.16s">Admisión, recetas, gramaje, tokens, membresías y fiscalización en un solo sistema. Menos WhatsApp y Excel. Más control y más ventas.</p>
           <div class="in-ctas anim-abajo" style="animation-delay:.24s">
             <a class="btn in-btn-verde in-btn-xl" href="#presentacion">Ver la demo en vivo ${ico('flecha')}</a>
-            <a class="btn btn-fantasma in-btn-xl" href="#precios">Ver planes</a>
+            <a class="btn btn-fantasma in-btn-xl" href="#club">Ver el sitio del club</a>
           </div>
           <p class="in-mano in-mano-1">menos enredo,<br>más control ♡</p>
           <div class="in-heroe-bosque" aria-hidden="true">
@@ -371,7 +371,7 @@
         <p class="in-lead" data-entra="abajo" style="--d:.08s">Te mostramos tu dispensario con tu marca, en vivo.</p>
         <div class="in-ctas centro" data-entra="abajo" style="--d:.16s">
           <a class="btn btn-arcoiris in-btn-xl" href="#presentacion">${ico('play')} Ver la demo en vivo</a>
-          <a class="btn btn-fantasma in-btn-xl" href="#precios">Ver planes ${ico('flecha')}</a>
+          <a class="btn btn-fantasma in-btn-xl" href="#panel">Ver el panel del dueño ${ico('flecha')}</a>
         </div>
       </div>
     </section>

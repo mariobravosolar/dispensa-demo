@@ -124,8 +124,7 @@
     postular: 'Aprieta «Rellenar con datos de ejemplo» y mira cómo viaja la solicitud.',
     socio: 'Prueba «Adelantar calendario»: cuando vence la receta, el carrito se pausa solo.',
     panel: 'Aprueba una solicitud en 1 clic y mira todo lo que el sistema hace solo.',
-    presentacion: 'Avanza con las flechas del teclado.',
-    precios: 'Los primeros 10 dispensarios no pagan la implementación.'
+    presentacion: 'Avanza con las flechas del teclado.'
   };
   const SUELTAS = ['Todo en regla, todo en orden.', 'Cada gramo, contado.', 'Receta al día, carrito feliz.', 'Menos WhatsApp, más tiempo para el club.'];
   let yo = null, globoT = null, tSalir = null, silencio = false, pose = 'saluda', visible = false, yInicio = 0, finalVisible = false;

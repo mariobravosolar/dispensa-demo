@@ -551,50 +551,41 @@
     </div>`;
   }
 
-  /* 14 · Planes */
+  /* 14 · Próximo paso (sin precios: se cotiza con cada dispensario) */
   function hPlanes() {
     return `
     ${foto('img/arte/paisaje-cannabis.jpg', 'pz-foto-velo')}
     <div class="pz-col pz-planes-col">
       <div class="pz-cabeza pz-cabeza-fila">
         <div>
-          <p class="pz-eyebrow pz-a pz-iz">Planes</p>
-          <h2 class="pz-t pz-a pz-iz" ${d(.1)}>Elige cómo <em>empezar</em>.</h2>
+          <p class="pz-eyebrow pz-a pz-iz">Próximo paso</p>
+          <h2 class="pz-t pz-a pz-iz" ${d(.1)}>Tu dispensario, <em>con tu marca</em>.</h2>
         </div>
-        <p class="pz-oferta pz-a pz-de" ${d(.3)}>${ico('estrella')}<span><b>Implementación gratis</b> para los primeros 10 dispensarios</span></p>
+        <p class="pz-oferta pz-a pz-de" ${d(.3)}>${ico('estrella')}<span><b>Propuesta a la medida</b> de cada dispensario</span></p>
       </div>
       <div class="pz-planes">
         <div class="pz-plan pz-vidrio pz-a pz-ab" ${d(.45)}>
-          <p class="pz-plan-n">Licencia Perpetua</p>
-          <p class="pz-plan-p"><small>USD</small><b class="num" data-pz-usd="2400">2.400</b><em>pago único</em></p>
-          <ul><li>${ico('check')}Implementación incluida</li><li>${ico('check')}12 meses de mejoras</li><li>${ico('check')}Es tuyo para siempre</li></ul>
+          <p class="pz-plan-n">1 · Conversamos</p>
+          <ul><li>${ico('check')}Cómo opera hoy tu club</li><li>${ico('check')}Socios, recetas y canjes</li><li>${ico('check')}Qué te quita más tiempo</li></ul>
         </div>
         <div class="pz-plan pz-plan-dest pz-vidrio pz-a pz-ab" ${d(.3)}>
-          <span class="pz-plan-tag">${ico('estrella')}Recomendada</span>
-          <p class="pz-plan-n">Licencia Anual</p>
-          <p class="pz-plan-p"><small>USD</small><b class="num" data-pz-usd="990">990</b><em>/ año</em></p>
-          <p class="pz-plan-imp">+ implementación <s>USD 490</s> <b>gratis*</b></p>
-          <ul><li>${ico('check')}Actualizaciones mensuales</li><li>${ico('check')}Soporte continuo</li><li>${ico('check')}Si no renuevas, sigue andando</li></ul>
+          <span class="pz-plan-tag">${ico('estrella')}En 2 semanas</span>
+          <p class="pz-plan-n">2 · Lo dejamos andando</p>
+          <ul><li>${ico('check')}Tu marca y tu dominio</li><li>${ico('check')}Carga de socios y productos</li><li>${ico('check')}Capacitación al equipo</li></ul>
         </div>
         <div class="pz-plan pz-vidrio pz-a pz-ab" ${d(.6)}>
-          <p class="pz-plan-n">Dispensa Nube</p>
-          <p class="pz-plan-p"><small>USD</small><b class="num" data-pz-usd="129">129</b><em>/ mes</em></p>
-          <ul><li>${ico('check')}Hosting, dominio y respaldos</li><li>${ico('check')}Mejoras siempre incluidas</li><li>${ico('check')}Cero preocupación técnica</li></ul>
+          <p class="pz-plan-n">3 · Te acompañamos</p>
+          <ul><li>${ico('check')}Soporte cercano</li><li>${ico('check')}Mejoras continuas</li><li>${ico('check')}Chile y Argentina</li></ul>
         </div>
       </div>
-      <p class="pz-letra pz-a pz-ab" ${d(.9)}>${ico('soporte')}3 meses de soporte intensivo incluidos · USD + impuestos, se factura en CLP o ARS · *primeros 10</p>
       <div class="pz-cta pz-a pz-ab" ${d(1.1)}>
         <b>Ver la demo en vivo</b>
         <a class="btn btn-arcoiris btn-sm" href="#club">${ico('mundo')}Sitio del club</a>
         <a class="btn btn-fantasma btn-sm" href="#postular">${ico('documento')}Postulación</a>
         <a class="btn btn-fantasma btn-sm" href="#socio">${ico('telefono')}App del socio</a>
         <a class="btn btn-fantasma btn-sm" href="#panel">${ico('grafico')}Panel</a>
-        <a class="btn btn-fantasma btn-sm" href="#precios">${ico('token')}Planes en detalle</a>
       </div>
     </div>`;
-  }
-  function ePlanes(sec) {
-    sec.querySelectorAll('[data-pz-usd]').forEach((el, k) => T.set(() => contar(el, +el.dataset.pzUsd, 1200), 500 + k * 150));
   }
 
   const DIAS = [
@@ -611,7 +602,7 @@
     { id: 'comunicados', nombre: 'Comunicados', html: hComunicados, entrar: eComunicados, vivo: 'panel' },
     { id: 'regla', nombre: 'Todo en regla', html: hRegla, entrar: eRegla, vivo: 'panel' },
     { id: 'gana', nombre: 'Lo que ganas', html: hGana },
-    { id: 'planes', nombre: 'Planes', html: hPlanes, entrar: ePlanes }
+    { id: 'planes', nombre: 'Próximo paso', html: hPlanes }
   ];
   const N = DIAS.length;
 
