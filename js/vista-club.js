@@ -116,11 +116,11 @@
   ];
 
   const REQUISITOS = [
-    { ico: 'cedula', t: 'Cédula por ambos lados', m: 'la foto puede salir fea, no juzgamos' },
-    { ico: 'documento', t: 'Certificado de antecedentes', m: 'se saca gratis en línea, en 2 minutos' },
-    { ico: 'receta', t: 'Receta médica vigente', m: 'tu médico define cuánto, nosotros cumplimos' },
+    { ico: 'cedula', t: 'Cédula por ambos lados', m: 'foto legible, frente y reverso' },
+    { ico: 'documento', t: 'Certificado de antecedentes', m: 'se obtiene en línea, sin costo' },
+    { ico: 'receta', t: 'Receta médica vigente', m: 'tu médico define la dosis mensual' },
     { ico: '18', t: 'Mayor de edad', m: '18 años o más, sin excepciones' },
-    { ico: 'comunicado', t: 'Entrevista', m: 'es una conversación, no un examen' }
+    { ico: 'comunicado', t: 'Entrevista', m: 'conversación con el comité de admisión' }
   ];
 
   const POLITICA = [
@@ -252,7 +252,7 @@
           ${REQUISITOS.map((r, i) => `<div class="cl-req cl-rv" data-dir="der" style="--dl:${i * 90}ms" tabindex="0">
             <span class="cl-req-ico">${icono(r)}</span><h3>${r.t}</h3><p class="cl-mano">${r.m}</p></div>`).join('')}
         </div>
-        <p class="cl-mano cl-rot cl-req-mano cl-rv" data-dir="der">primero la regla,<br>después el catálogo</p>
+        <p class="cl-mano cl-rot cl-req-mano cl-rv" data-dir="der">primero la receta,<br>después el catálogo</p>
       </div>
     </section>`;
   }
@@ -287,7 +287,7 @@
       <div class="contenedor cl-pol-grid">
         <div>
           <p class="cl-eyebrow cl-rv" data-dir="abajo">Política de admisión</p>
-          <h2 class="cl-h2 cl-rv" data-dir="izq">Las reglas, <b>claritas.</b></h2>
+          <h2 class="cl-h2 cl-rv" data-dir="izq">Las reglas, <b>claras.</b></h2>
           <p class="cl-mano cl-mano-grande cl-rv" data-dir="izq">sin letra chica</p>
         </div>
         <div class="cl-acordeon">
@@ -304,7 +304,7 @@
     <section class="cl-sec cl-dentro" id="cl-dentro">
       <div class="contenedor">
         <p class="cl-eyebrow cl-rv" data-dir="abajo">Cómo funciona por dentro</p>
-        <h2 class="cl-h2 cl-rv" data-dir="izq">Tres piezas, <b>cero enredos.</b></h2>
+        <h2 class="cl-h2 cl-rv" data-dir="izq">Tres piezas, <b>con todo en orden.</b></h2>
         <div class="cl-dentro-grid">
           <div class="cl-pieza cl-rv" data-dir="izq">
             <span class="cl-pieza-n">1</span>

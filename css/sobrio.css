@@ -66,3 +66,65 @@
 .cl-il-m1 { fill: #1F3B30; } .cl-il-m2 { fill: #16302A; } .cl-il-m3 { fill: #0C1C16; }
 .cl-il-lago { fill: #6FB39A; } .cl-il-luna { fill: #E2C46A; } .cl-il-nieve { fill: #E7EFEA; }
 .cl-esc-mano { display: none !important; }
+
+/* ============================================================
+   Ritmo de fondos en modo claro (revisión de Mario, 2026-09-30):
+   crema sobre crema hacía perder las secciones. Se alternan bandas
+   blanco puro / salvia intermedio / crema, y degradado verde oscuro
+   (el de los temas oscuros) para los momentos clave.
+   Cada banda redefine --fondo y las variables de vidrio, porque las
+   variables con var() se resuelven donde se declaran.
+   ============================================================ */
+:root[data-modo="claro"] :is(.in-ad, .in-cum, .cl-requisitos, .cl-dentro) {
+  --fondo: #FFFFFF; --fondo-2: #F6F3EC; --fondo-3: #EFEAE0;
+  --in-vidrio: #F6F3EC; --in-borde: rgba(47, 125, 98, .22);
+  background: #FFFFFF;
+}
+:root[data-modo="claro"] :is(.in-viaje, .in-gan, .cl-como, .cl-politica, .cl-faq) {
+  --fondo: #E5ECE6; --fondo-2: #FFFFFF; --fondo-3: #F4F7F4;
+  --in-vidrio: #FFFFFF; --in-borde: rgba(47, 125, 98, .2);
+  background: #E5ECE6;
+}
+:root[data-modo="claro"] :is(.in-mod, .in-cel-sec, .cl-quienes) {
+  --fondo: #F2EEE6; --fondo-2: #FFFFFF; --fondo-3: #F8F6F1;
+  --in-vidrio: #FFFFFF; --in-borde: rgba(47, 125, 98, .2);
+  background: #F2EEE6;
+}
+/* tarjetas: blanco puro con sombra suave, para que se despeguen del fondo */
+:root[data-modo="claro"] :is(.in-mod, .in-cel-sec, .in-viaje, .in-gan, .cl-quienes, .cl-como, .cl-politica, .cl-faq) {
+  --sombra: 0 14px 34px -20px rgba(21, 36, 30, .35); --sombra-sm: 0 6px 16px -10px rgba(21, 36, 30, .28);
+}
+
+/* bandas verde oscuro: textos claros y tarjetas translúcidas */
+:root[data-modo="claro"] :is(.in-gram, .in-final, .in-pie, .cl-candado-sec) {
+  --fondo: #0F2A20; --fondo-2: rgba(255, 255, 255, .07); --fondo-3: rgba(255, 255, 255, .04);
+  --tinta: #F1F6F2; --tinta-2: #C6D6CD; --tinta-3: #93AAA0;
+  --linea: rgba(215, 235, 222, .14); --linea-fuerte: rgba(215, 235, 222, .28);
+  --bosque: #66C996; --bosque-2: #8FD9B3; --sobre-bosque: #06110B;
+  --salvia: #5FC48F; --malva: #8FD9B3; --rosa: #8FD9B3; --lavanda: #A9D6C1;
+  --mostaza: #E9C45A; --naranja: #E9C45A; --miel: #E9C45A; --durazno: #F0D27C;
+  --ok: #6FD6A0; --ok-fondo: rgba(111, 214, 160, .13);
+  --aviso: #E9C45A; --aviso-fondo: rgba(233, 196, 90, .13);
+  --alerta: #FF8A6B; --alerta-fondo: rgba(255, 138, 107, .13);
+  --sombra: 0 24px 60px -24px rgba(0, 0, 0, .7); --sombra-sm: 0 6px 18px -10px rgba(0, 0, 0, .6);
+  --in-vidrio: rgba(255, 255, 255, .06); --in-borde: rgba(143, 217, 179, .26); --in-brillo: rgba(95, 196, 143, .18); --in-acento: #8FD9B3;
+  --psico: linear-gradient(100deg, #3FAE7A 0%, #5FC48F 55%, #8FD9B3 100%);
+  color: var(--tinta);
+  background:
+    radial-gradient(60% 70% at 100% 0%, rgba(233, 196, 90, .07), transparent 60%),
+    radial-gradient(70% 80% at 0% 100%, rgba(95, 196, 143, .14), transparent 65%),
+    linear-gradient(160deg, #0B1F18 0%, #0F2A20 50%, #1B4535 100%);
+}
+:root[data-modo="claro"] .in-pie { background: #0B1F18; border-top-color: rgba(215, 235, 222, .1); }
+:root[data-modo="claro"] :is(.in-gram, .in-final, .cl-candado-sec) .in-grad { background-image: linear-gradient(95deg, #8FD9B3, #E9C45A) !important; }
+:root[data-modo="claro"] .in-final .btn-arcoiris { background: #E9C45A; color: #0B1F18; }
+:root[data-modo="claro"] .in-final .btn-fantasma { color: #F1F6F2; border-color: rgba(241, 246, 242, .35); }
+
+/* cierre del club: velo verde noche en vez de morado */
+.cl-final-fondo::before { background: radial-gradient(ellipse at 50% 55%, rgba(8, 24, 18, .62), rgba(8, 24, 18, .2) 70%) !important; }
+.cl-final-titulo em, .cl-final .cl-mano { color: #E9C45A !important; }
+.cl-pie { background: linear-gradient(0deg, rgba(8, 24, 18, .92), rgba(8, 24, 18, .5)) !important; }
+.cl-club-links, .cl-flecha { background: rgba(8, 24, 18, .4) !important; }
+.cl-cand-ico { background: rgba(8, 24, 18, .5) !important; }
+.cl-an-tel { fill: rgba(8, 24, 18, .6); }
+.cl-cand-centro { background: radial-gradient(circle at center, rgba(8, 24, 18, .6), rgba(8, 24, 18, .18) 70%) !important; }

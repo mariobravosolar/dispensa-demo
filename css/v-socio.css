@@ -270,7 +270,7 @@ div.so-card { cursor: default; }
 .so-prod-foto { display: block; position: relative; padding: 0; border: 0; cursor: pointer; aspect-ratio: 1 / .82; overflow: hidden; background: var(--fondo-3); }
 .so-prod-foto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s var(--ease); }
 .so-prod-foto:hover img { transform: scale(1.06); }
-.so-stock { position: absolute; left: 8px; bottom: 8px; padding: 3px 8px; border-radius: 99px; background: var(--naranja); color: #1F0E33; font-size: .7rem; font-weight: 800; }
+.so-stock { position: absolute; left: 8px; bottom: 8px; padding: 3px 8px; border-radius: 99px; background: var(--naranja); color: #15241E; font-size: .7rem; font-weight: 800; }
 .so-corazon { position: absolute; top: 8px; right: 8px; width: 30px; height: 30px; border-radius: 50%; border: 0; display: grid; place-items: center; cursor: pointer; background: rgba(15, 8, 30, .45); color: #fff; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
 .so-corazon .ico { width: 17px; height: 17px; }
 .so-corazon[aria-pressed="true"] { color: var(--rosa); }
@@ -318,7 +318,7 @@ div.so-card { cursor: default; }
 /* aviso dentro de la app */
 .so-banner { position: absolute; left: 10px; right: 10px; top: 46px; z-index: 45; display: flex; gap: 12px; align-items: center; padding: 11px 14px; border-radius: 20px; cursor: pointer; background: color-mix(in srgb, var(--fondo-2) 92%, transparent); border: 1px solid var(--linea-fuerte); box-shadow: var(--sombra); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); animation: soBannerIn .55s var(--rebote) both; }
 .so-banner.sale { animation: soBannerOut .4s ease forwards; }
-.so-banner-ico { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; flex: none; background: var(--psico); color: #1F0E33; }
+.so-banner-ico { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; flex: none; background: var(--psico); color: #15241E; }
 .so-banner small { font-size: .7rem; color: var(--tinta-3); }
 .so-banner b { display: block; font-size: .9rem; line-height: 1.2; }
 .so-banner p { font-size: .8rem; color: var(--tinta-2); line-height: 1.3; }
@@ -483,7 +483,7 @@ div.so-card { cursor: default; }
 .so-bolsa-mon .moneda { width: 24px; height: 24px; font-size: 10px; margin-left: -8px; }
 .so-bolsa-mon .moneda:first-child { margin-left: 0; }
 .so-bolsa.destacada { border: 2px solid var(--mostaza); box-shadow: 0 0 30px -10px var(--mostaza); background: radial-gradient(90% 70% at 50% 0%, color-mix(in srgb, var(--mostaza) 20%, transparent), transparent 70%), var(--so-vidrio); }
-.so-bolsa-cinta { position: absolute; top: 12px; right: -30px; transform: rotate(35deg); background: var(--psico); color: #1F0E33; font-size: .62rem; font-weight: 800; padding: 3px 32px; text-transform: uppercase; letter-spacing: .06em; }
+.so-bolsa-cinta { position: absolute; top: 12px; right: -30px; transform: rotate(35deg); background: var(--psico); color: #15241E; font-size: .62rem; font-weight: 800; padding: 3px 32px; text-transform: uppercase; letter-spacing: .06em; }
 .so-movs { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; border-radius: 20px; overflow: hidden; border: 1px solid var(--linea); background: var(--so-vidrio); }
 .so-movs li { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-bottom: 1px solid var(--linea); }
 .so-movs li:last-child { border-bottom: 0; }
@@ -550,7 +550,7 @@ div.so-card { cursor: default; }
 .so-perfil-top { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
 .so-perfil-top .so-h-pag { font-size: 1.5rem; }
 .so-perfil-top small { font-size: .74rem; }
-.so-avatar { width: 58px; height: 58px; border-radius: 50%; flex: none; display: grid; place-items: center; background: var(--psico); color: #1F0E33; font-family: var(--f-retro); font-size: 1.7rem; font-weight: 800; box-shadow: 0 0 0 3px var(--fondo), 0 0 0 5px color-mix(in srgb, var(--salvia) 60%, transparent); }
+.so-avatar { width: 58px; height: 58px; border-radius: 50%; flex: none; display: grid; place-items: center; background: var(--psico); color: #15241E; font-family: var(--f-retro); font-size: 1.7rem; font-weight: 800; box-shadow: 0 0 0 3px var(--fondo), 0 0 0 5px color-mix(in srgb, var(--salvia) 60%, transparent); }
 .so-memb { display: grid; gap: 12px; cursor: default; }
 .so-memb-top { display: flex; align-items: center; gap: 12px; }
 .so-memb-top > span:nth-child(2) { flex: 1; display: grid; }

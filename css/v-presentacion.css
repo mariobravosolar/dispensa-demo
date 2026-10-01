@@ -458,7 +458,7 @@ body[data-vista="presentacion"] { margin: 0; overflow: hidden; }
 
 /* =================== teléfonos (9, 10, 11) =================== */
 .pz-cel-zona { position: relative; display: grid; justify-items: center; gap: 12px; }
-.pz-cel { width: calc(var(--u) * 26); aspect-ratio: 9 / 18.5; max-height: calc(100cqh - var(--u) * 15); border-radius: calc(var(--u) * 3.6); padding: calc(var(--u) * .8); background: #0b0a1c; box-shadow: 0 0 0 2px #2c2760, 0 40px 80px -30px rgba(0, 0, 0, .8); position: relative; }
+.pz-cel { width: calc(var(--u) * 26); aspect-ratio: 9 / 18.5; max-height: calc(100cqh - var(--u) * 15); border-radius: calc(var(--u) * 3.6); padding: calc(var(--u) * .8); background: #0E1A15; box-shadow: 0 0 0 2px #23392F, 0 40px 80px -30px rgba(0, 0, 0, .8); position: relative; }
 .pz-cel-pant { position: relative; width: 100%; height: 100%; border-radius: calc(var(--u) * 2.9); overflow: hidden; background: var(--fondo); font-size: calc(var(--u) * 1.15); }
 .pz-cel-isla { position: absolute; z-index: 5; top: calc(var(--u) * 1); left: 50%; transform: translateX(-50%); width: 32%; height: calc(var(--u) * 2); border-radius: 99px; background: #000; }
 .pz-app-riel { display: flex; width: 400%; height: 100%; transition: transform .8s var(--ease); }
@@ -626,7 +626,7 @@ body[data-vista="presentacion"] { margin: 0; overflow: hidden; }
 .pz-bloq-hora small { opacity: .85; font-size: 1.05em; }
 .pz-notis { position: absolute; left: .9em; right: .9em; top: 42%; display: grid; gap: .6em; }
 .pz-noti { display: flex; gap: .7em; padding: .8em .9em; border-radius: 1.2em; background: rgba(251, 243, 255, .16); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(251, 243, 255, .22); animation: pzNoti .6s var(--rebote) both; }
-.pz-noti > span { flex: none; width: 2.6em; height: 2.6em; border-radius: .8em; display: grid; place-items: center; background: #1A0033; }
+.pz-noti > span { flex: none; width: 2.6em; height: 2.6em; border-radius: .8em; display: grid; place-items: center; background: #0B1F18; }
 .pz-noti > span .ico { width: 70%; height: 70%; color: #FBF3FF; }
 .pz-noti small { display: block; font-size: .85em; opacity: .8; }
 .pz-noti b { display: block; font-size: 1.1em; line-height: 1.2; }
@@ -688,7 +688,7 @@ body[data-vista="presentacion"] { margin: 0; overflow: hidden; }
 .pz-planes-col { gap: calc(var(--u) * 1.6); }
 .pz-planes-col .pz-cabeza-fila { margin-bottom: calc(var(--u) * 1.2); }
 .pz-d-planes .pz-t { font-size: calc(var(--u) * 4.4); }
-.pz-oferta { display: flex; align-items: center; gap: 12px; padding: calc(var(--u) * 1) calc(var(--u) * 1.8); border-radius: 99px; background: var(--psico); background-size: 180% 100%; animation: deriva 6s ease-in-out infinite alternate; color: #1F0E33; font-size: calc(var(--u) * 1.45); max-width: calc(var(--u) * 44); line-height: 1.25; box-shadow: 0 10px 40px -12px var(--naranja); }
+.pz-oferta { display: flex; align-items: center; gap: 12px; padding: calc(var(--u) * 1) calc(var(--u) * 1.8); border-radius: 99px; background: var(--psico); background-size: 180% 100%; animation: deriva 6s ease-in-out infinite alternate; color: #15241E; font-size: calc(var(--u) * 1.45); max-width: calc(var(--u) * 44); line-height: 1.25; box-shadow: 0 10px 40px -12px var(--naranja); }
 .pz-oferta .ico { width: 1.6em; height: 1.6em; flex: none; }
 .pz-planes { display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(var(--u) * 1.8); align-items: stretch; }
 .pz-plan { position: relative; padding: calc(var(--u) * 2) calc(var(--u) * 2.2); display: grid; align-content: start; gap: calc(var(--u) * .8); }

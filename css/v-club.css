@@ -30,7 +30,7 @@ body[data-vista="club"] { margin: 0; }
    ============================================================ */
 .cl-hero {
   --cl-crema: #FBF3FF;
-  --cl-noche: color-mix(in srgb, #12002A 80%, var(--fondo-3));
+  --cl-noche: color-mix(in srgb, #08140F 80%, var(--fondo-3));
   position: relative; height: 88vh; min-height: 600px; max-height: 1000px;
   overflow: hidden; background: var(--atardecer); color: var(--cl-crema); isolation: isolate;
 }
@@ -157,7 +157,7 @@ body[data-vista="club"] { margin: 0; }
 .cl-an-camino { stroke: rgba(251, 243, 255, .45); stroke-width: 2; stroke-dasharray: 8 8; animation: clCamino 1s linear infinite; }
 @keyframes clCamino { to { stroke-dashoffset: -16; } }
 .cl-an-camion path { fill: rgba(71, 145, 123, .5); stroke: #FBF3FF; stroke-width: 2.5; stroke-linejoin: round; }
-.cl-an-camion circle { fill: #12002A; stroke: #F4C542; stroke-width: 3; }
+.cl-an-camion circle { fill: #08140F; stroke: #F4C542; stroke-width: 3; }
 .cl-an-camion { animation: clBache .5s ease-in-out infinite alternate; }
 @keyframes clBache { to { transform: translateY(-2px); } }
 .cl-an-pantalla { fill: rgba(251, 243, 255, .1); stroke: #FBF3FF; stroke-width: 2; }
@@ -172,7 +172,7 @@ body[data-vista="club"] { margin: 0; }
 
 .cl-an-lazos path { fill: none; stroke: #9BE3C4; stroke-width: 2; stroke-dasharray: 1; opacity: .8; }
 .cl-an-lazos .arco { stroke: #F4C542; stroke-width: 1.5; opacity: .6; }
-.cl-an-personas circle:first-child { fill: #26094A; stroke: #FBF3FF; stroke-width: 2.5; }
+.cl-an-personas circle:first-child { fill: #16302A; stroke: #FBF3FF; stroke-width: 2.5; }
 .cl-an-personas circle + circle { fill: #FBF3FF; }
 .cl-an-personas path { fill: none; stroke: #FBF3FF; stroke-width: 2.5; stroke-linecap: round; }
 .cl-an-personas .p { animation: flotar 4s ease-in-out infinite; }
@@ -345,7 +345,7 @@ body[data-vista="club"] { margin: 0; }
 .cl-cand-ico { width: 104px; height: 104px; margin-bottom: 6px; border-radius: 50%; display: grid; place-items: center; background: rgba(18, 0, 42, .45); border: 2px solid rgba(251, 243, 255, .6); backdrop-filter: blur(6px); animation: latir 2.6s ease-in-out infinite; }
 .cl-cand-ico svg { width: 52px; height: 52px; fill: #FBF3FF; stroke: #FBF3FF; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
 .cl-cand-ico .cl-grillete { fill: none; }
-.cl-cand-ico circle, .cl-cand-ico path:last-child { fill: #1A0033; stroke: #1A0033; }
+.cl-cand-ico circle, .cl-cand-ico path:last-child { fill: #0B1F18; stroke: #0B1F18; }
 .cl-grillete { animation: clAbre 3.4s ease-in-out infinite; }
 @keyframes clAbre { 0%, 55%, 100% { transform: none; } 65%, 85% { transform: translateY(-5px); } }
 .cl-cand-mano { position: absolute; right: 30px; bottom: -44px; font-size: 1.5rem; }
@@ -363,7 +363,7 @@ body[data-vista="club"] { margin: 0; }
 .cl-acc-ico { width: 48px; height: 48px; flex: none; border-radius: 15px; display: grid; place-items: center; background: color-mix(in srgb, var(--malva) 15%, transparent); color: var(--malva); }
 .cl-acc-ico .ico { width: 26px; height: 26px; }
 .cl-acc-mas { margin-left: auto; width: 36px; height: 36px; flex: none; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--linea-fuerte); transition: transform .35s var(--rebote), background .3s; }
-details[open] > summary .cl-acc-mas { transform: rotate(45deg); background: var(--naranja); color: #1F0E33; border-color: transparent; }
+details[open] > summary .cl-acc-mas { transform: rotate(45deg); background: var(--naranja); color: #15241E; border-color: transparent; }
 .cl-acordeon details p, .cl-faq-item p { padding: 0 24px 24px 86px; font-size: 1.15rem; color: var(--tinta-2); animation: entraAbajo .45s var(--ease); }
 .cl-faq-item p { padding-left: 24px; }
 
